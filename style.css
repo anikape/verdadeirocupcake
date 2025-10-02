@@ -127,6 +127,10 @@ ul li a:hover {
   font-weight: 700;
   padding: 10px 0;
 }
+
+.nama p{
+  color: #A64444;
+}
 .menu .harga .merah {
   color: #A64444;
   font-style: bolder;
