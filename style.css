@@ -1,0 +1,198 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playball&family=Yesteryear&display=swap');
+
+:root {
+  --main-color: #D99197;
+  --warna-merah: #f42f67;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #D99197;
+  font-family: "Rubik", sans-serif;
+  font-size: 12px;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+}
+header h1{
+  font-family: "Playball", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 5rem;
+}
+
+.headerLogo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  animation: floatZoom 5s ease-in-out infinite;
+
+  /* sombra sutil */
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+main {
+  padding: 20px;
+}
+h1,
+h2 {
+  text-align: center;
+}
+
+
+
+h1 {
+  font-family: "Comforter Brush", cursive;
+  color: #A64444;
+}
+h2 {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin: 15px 0 30px;
+}
+
+ul {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+ul li {
+  list-style: none;
+  margin: 0 5px;
+  flex-shrink: 0;
+}
+ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: #000;
+  text-decoration: none;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px -1px #ccc;
+}
+ul li,
+ul li a:hover {
+  background: var(--main-color);
+  color: white;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 35px;
+  justify-content: center;
+}
+.menu .item {
+  width: 300px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px -5px #ccc;
+  padding: 20px;
+  margin: 10px;
+  position: relative;
+}
+
+.menu .item .foto img {
+  padding: 3rem 0 2rem 0;
+  height: 370px;
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease; /* suaviza o efeito */
+  overflow: hidden;
+  
+}
+
+.menu .item .foto img:hover{
+  transform: scale(1.1);
+}
+
+.menu .item .keterangan {
+  color: #ccc;
+  display: flex;
+}
+.menu .item .nama {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 0;
+}
+.menu .harga .merah {
+  color: #A64444;
+  font-style: bolder;
+}
+.menu .harga .coret {
+  text-decoration: line-through;
+  color: #666;
+}
+.menu .item .keterangan .bintang {
+  margin-left: 10px;
+}
+.menu .item .keterangan .bintang span {
+  font-size: 14px;
+}
+.menu .item .keterangan .bintang span.active {
+  color: salmon;
+}
+
+
+.menu .badge {
+  
+  position: absolute;
+  background: #F2BDBD;
+  padding: 5px 15px;
+  border-radius: 5px;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+  color: #A64444;
+}
+.menu .item:hover nav {
+  display: flex;
+}
+
+.button-see {
+  text-align: center;
+  margin-top: 30px;
+}
+.button-see a {
+  background: var(--main-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.button-see a:hover {
+  background: tomato;
+}
+
+@media (max-width: 480px) {
+  .menu .item {
+    width: 100%;
+    margin: 0;
+  }
+  ul {
+    justify-content: left;
+    overflow-x: scroll;
+  }
+}
+
+
+@keyframes floatZoom {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.03);
+  }
+}
