@@ -24,12 +24,12 @@ body {
   color: var(--vermelho-escuro);
   line-height: 1.6;
   display: flex;
-  flex-direction: column; /* organiza header + main + footer verticalmente */
+  flex-direction: column;
   min-height: 100vh;
 }
 
 main {
-  flex: 1; /* ocupa todo o espaço disponível, empurrando o footer para baixo */
+  flex: 1;
 }
 
 /* HEADER */
@@ -175,6 +175,122 @@ nav ul li a:hover {
   margin-bottom: 10px;
 }
 
+/* Container dos cards info */
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* CARD INDIVIDUAL */
+.info-card {
+  flex: 1 1 300px;
+  max-width: 450px;
+  background: linear-gradient(135deg, #fde2e2, #fff5f5);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  border: 1px solid #f8c6c6;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.info-card h2 {
+  font-size: 1.2rem;
+  color: var(--verde-destaque);
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--rosa-claro);
+  padding-bottom: 5px;
+}
+
+.info-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-card ul li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* CARD ENCOMENDAS */
+.encomendas-card {
+  background: url('https://images.unsplash.com/photo-1582719478170-8ef8c7d3b1b2?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 450px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.encomendas-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.encomendas-card h2 {
+  color: #FFD700;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.encomendas-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.encomendas-card ul li {
+  margin-bottom: 12px;
+  padding-left: 30px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.encomendas-card ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #04BF55;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.encomendas-card .contact {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--vermelho-escuro);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
 /* FOOTER */
 footer {
   background: var(--vermelho-escuro);
@@ -248,6 +364,18 @@ footer {
 
   .item img {
     height: 380px;
+  }
+
+  /* Info cards responsivo */
+  .info-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin: 0 0 20px 0;
   }
 }
 
