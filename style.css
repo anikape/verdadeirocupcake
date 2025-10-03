@@ -13,9 +13,14 @@
 }
 
 /* BODY E LAYOUT */
-html, body {
+html,
+body {
   height: 100%;
 }
+
+/*Botão topop*/
+
+
 
 body {
   font-family: "Rubik", sans-serif;
@@ -38,7 +43,7 @@ header {
   justify-content: space-between;
   background: var(--branco-claro);
   padding: 15px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
@@ -135,6 +140,7 @@ nav ul li a:hover {
   color: #333;
 }
 
+/* CARD ADICIONAL */
 .card-subtitle {
   font-weight: 700;
   color: var(--verde-destaque);
@@ -173,6 +179,7 @@ nav ul li a:hover {
   margin-bottom: 10px;
 }
 
+/* Container dos cards info */
 .info-cards {
   display: flex;
   flex-wrap: wrap;
@@ -183,6 +190,7 @@ nav ul li a:hover {
   margin: 0 auto;
 }
 
+/* CARD INDIVIDUAL */
 .info-card {
   flex: 1 1 300px;
   max-width: 450px;
@@ -287,7 +295,9 @@ nav ul li a:hover {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
 
-/* FOOTER */
+
+
+/* Footer Geral */
 footer {
   background: var(--vermelho-escuro);
   color: #fff;
@@ -308,6 +318,7 @@ footer {
   margin-bottom: 15px;
 }
 
+/* Instagram */
 .footer-instagram {
   flex: 1 1 250px;
   display: flex;
@@ -329,10 +340,11 @@ footer {
   color: #e1306c;
 }
 
+/* Mapa */
 .map-container {
   flex: 2 1 450px;
-  max-width: 600px;
-  height: 300px;
+  max-width: 600px;   /* garante que fique grande no desktop */
+  height: 300px;      /* altura adequada para desktop */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -344,11 +356,78 @@ footer {
   border: 0;
 }
 
+/* Texto de desenvolvedor */
 #footer-text {
   display: flex;
   justify-content: center;
   padding-top: 1em;
 }
+
+/* ===== RESPONSIVO MOBILE ===== */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .footer-instagram {
+    margin-bottom: 10px;
+  }
+
+  .map-container {
+    width: 90%;        /* ocupa quase toda a tela */
+    height: 250px;      /* altura proporcional */
+    max-width: 500px;   /* limita para telas grandes */
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container {
+    width: 100%;
+  }
+}
+
+/*Voltar ao Topo*/
+/* Botão Voltar ao Topo */
+#back-to-top {
+  position: fixed;
+  bottom: 150px; /* acima do botão WhatsApp */
+  right: 20px;
+  background-color: var(--verde-destaque);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+  z-index: 1001; /* acima do WhatsApp */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+#back-to-top:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 /* BOTÃO FLUTUANTE WHATSAPP */
 .whatsapp-float {
@@ -364,31 +443,21 @@ footer {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
 }
 
 .whatsapp-float i {
   font-size: 28px;
 }
 
-/* ANIMAÇÃO LOGO */
-@keyframes floatZoom {
-  0%,100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-6px) scale(1.05);
-  }
-}
-
-/* ===== RESPONSIVO MOBILE ===== */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -400,7 +469,7 @@ footer {
     width: 200px;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
   nav ul.active {
@@ -419,13 +488,14 @@ footer {
 
   .item {
     width: 95%;
-    min-height: 500px;
+    min-height: 550px;
   }
 
   .item img {
     height: 380px;
   }
 
+  /* Info cards responsivo */
   .info-cards {
     flex-direction: column;
     align-items: center;
@@ -436,18 +506,22 @@ footer {
     max-width: 100%;
     margin: 0 0 20px 0;
   }
+}
 
+
+/* ===== RESPONSIVO MOBILE ===== */
+@media (max-width: 768px) {
   footer {
-    padding: 15px 10px; /* reduzido */
+    padding: 25px 10px;
   }
 
   .footer-top {
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 10px;
+    gap: 20px;
   }
 
+  /* Instagram */
   .footer-instagram {
     margin: 0 auto;
   }
@@ -457,17 +531,36 @@ footer {
     text-align: center;
   }
 
+  /* Mapa */
   .map-container {
     width: 100%;
-    max-width: 350px;
-    height: 150px; /* reduzido */
+    max-width: 380px;
+    height: 200px;
     border-radius: 10px;
   }
 
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Texto inferior */
   #footer-text {
     font-size: 0.8rem;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
     opacity: 0.9;
+  }
+}
+
+
+/* Animação logo */
+@keyframes floatZoom {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.05);
   }
 }

@@ -6,6 +6,22 @@
       nav.classList.toggle("active");
     });  
   
+    //Botão voltar ao topo
+    const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) { // aparece depois de rolar 300px
+    backToTopButton.classList.add('show');
+  } else {
+    backToTopButton.classList.remove('show');
+  }
+});
+
+backToTopButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
   
   
   
