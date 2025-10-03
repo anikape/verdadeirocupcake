@@ -14,6 +14,8 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
+
+
 </head>
 
 <body>
@@ -116,10 +118,9 @@
 
   </main>
 
-  <footer>
-    <p>Desenvolvido por @anikape</p>
-  </footer>
-
+ <footer>
+  <p id="footer-text">Desenvolvido por @anikape - <span id="current-date"></span></p>
+</footer>
 
 
 <!-- <a href="https://wa.me/5581981802018" target="_blank" class="whatsapp-btn">
@@ -132,15 +133,6 @@
   <i class="fab fa-whatsapp"></i>
 </a>
 
-
-  <script>
-    // Menu hambúrguer
-    const toggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector("nav ul");
-
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("active");
-    });
-  </script>
+ <script src="script.js"></script>
 </body>
 </html>
