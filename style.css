@@ -18,10 +18,6 @@ body {
   height: 100%;
 }
 
-/*Botão topop*/
-
-
-
 body {
   font-family: "Rubik", sans-serif;
   background: var(--rosa-principal);
@@ -34,6 +30,38 @@ body {
 
 main {
   flex: 1;
+}
+
+/* BOTÃO VOLTAR AO TOPO */
+#back-to-top {
+  position: fixed;
+  bottom: 150px; /* fica acima do WhatsApp e VLibras */
+  right: 20px;
+  background-color: var(--verde-destaque);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  font-size: 24px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#back-to-top:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* HEADER */
@@ -295,8 +323,6 @@ nav ul li a:hover {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
 
-
-
 /* Footer Geral */
 footer {
   background: var(--vermelho-escuro);
@@ -382,82 +408,7 @@ footer {
   }
 }
 
-
 /* Mobile */
-@media (max-width: 768px) {
-  .footer-top {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .map-container {
-    width: 100%;
-  }
-}
-
-/*Voltar ao Topo*/
-/* Botão Voltar ao Topo */
-#back-to-top {
-  position: fixed;
-  bottom: 150px; /* acima do botão WhatsApp */
-  right: 20px;
-  background-color: var(--verde-destaque);
-  color: #fff;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  font-size: 24px;
-  z-index: 1001; /* acima do WhatsApp */
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, transform 0.3s;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-#back-to-top:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.4);
-}
-
-#back-to-top.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-/* BOTÃO FLUTUANTE WHATSAPP */
-.whatsapp-float {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background-color: #25d366;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
-}
-
-.whatsapp-float i {
-  font-size: 28px;
-}
-
-/* RESPONSIVIDADE */
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -495,7 +446,6 @@ footer {
     height: 380px;
   }
 
-  /* Info cards responsivo */
   .info-cards {
     flex-direction: column;
     align-items: center;
@@ -506,11 +456,7 @@ footer {
     max-width: 100%;
     margin: 0 0 20px 0;
   }
-}
 
-
-/* ===== RESPONSIVO MOBILE ===== */
-@media (max-width: 768px) {
   footer {
     padding: 25px 10px;
   }
@@ -521,7 +467,6 @@ footer {
     gap: 20px;
   }
 
-  /* Instagram */
   .footer-instagram {
     margin: 0 auto;
   }
@@ -531,7 +476,6 @@ footer {
     text-align: center;
   }
 
-  /* Mapa */
   .map-container {
     width: 100%;
     max-width: 380px;
@@ -544,7 +488,6 @@ footer {
     height: 100%;
   }
 
-  /* Texto inferior */
   #footer-text {
     font-size: 0.8rem;
     text-align: center;
@@ -553,6 +496,33 @@ footer {
   }
 }
 
+/* BOTÃO FLUTUANTE WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+}
+
+.whatsapp-float i {
+  font-size: 28px;
+}
 
 /* Animação logo */
 @keyframes floatZoom {

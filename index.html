@@ -1,270 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verdadeiro Cupcake</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdadeiro Cupcake - Bolos e Doces Personalizados</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Luckiest+Guy&family=Rubik:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- SEO -->
+  <meta name="description" content="Verdadeiro Cupcake - Bolos, doces e lembrancinhas personalizadas em Abreu e Lima - PE.">
+  <meta name="keywords" content="bolos, doces, cupcakes, lembrancinhas, confeitaria, Abreu e Lima, Pernambuco">
+  <meta name="author" content="Ana Conceição Batista">
 
-  <!-- CSS -->
-  <link href="style.css" rel="stylesheet" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Verdadeiro Cupcake">
+  <meta property="og:description" content="Bolos, doces e lembrancinhas personalizadas. Confira nossos produtos!">
+  <meta property="og:image" content="https://anikape.github.io/verdadeirocupcake/assets/bolo.jpg">
+  <meta property="og:url" content="https://anikape.github.io/verdadeirocupcake/">
 
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
-
-
-
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
-
 <body>
   <header>
-    <div class="logo">
-      <img src="./assets/logo1.png" alt="Logo Verdadeiro Cupcake" class="headerLogo" />
-      <h1>Verdadeiro Cupcake</h1>
-    </div>
-
-    <!-- Botão hambúrguer -->
-    <div class="menu-toggle">
-      <span class="material-icons">menu</span>
-    </div>
-
-    <!-- Menu navegação -->
+    <h1>Verdadeiro Cupcake</h1>
     <nav>
       <ul>
-        <li><a href="#">Bolos Personalizados</a></li>
-        <li><a href="#">Bolo Vulcão</a></li>
-        <li><a href="#">Doces Tradicionais</a></li>
-        <li><a href="#">Doces Especiais</a></li>
-        <li><a href="#">Lembrancinhas</a></li>
-        <li><a href="#">Naked Cake</a></li>
+        <li><a href="#bolos">Bolos</a></li>
+        <li><a href="#doces">Doces</a></li>
+        <li><a href="#lembrancinhas">Lembrancinhas</a></li>
+        <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="menu">
-      <!-- Card 1: Bolos Personalizados -->
-      <div class="item">
-        <img src="./assets/bolo.jpg" alt="Bolo Personalizado" />
-        <h2>Bolos Personalizados</h2>
-        <p class="card-subtitle">Valores a partir de:</p>
-        <ul class="card-values">
-          <li>Mini R$ 90,00 (1kg)</li>
-          <li>PP R$ 135,00 (1,5kg)</li>
-          <li>P R$ 170,00 (2,5kg)</li>
-          <li>M R$ 280,00 (3,5Kg)</li>
-          <li>G R$ 330,00 (4Kg)</li>
-          <li>GG R$ 390,00 (5Kg)</li>
-        </ul>
-        <p class="card-note">Topper a partir de R$ 30,00. Dourado, glitter, flores e outros detalhes consultar valores.</p>
-      </div>
-
-      <!-- Card 2: Bolo Vulcão -->
-      <div class="item">
-        <img src="./assets/vulcao.jpg" alt="Bolo Vulcão" />
-        <h2>Bolo Vulcão</h2>
-        <p class="card-subtitle">Sabores</p>
-        <ul class="card-values">
-          <li>Red Velvet</li>
-          <li>Bem Casado</li>
-          <li>Chocolate</li>
-          <li>Brigadeiro Branco</li>
-          <li>Paçoca</li>
-          <li>Beijinho</li>
-        </ul>
-        <p class="card-note">R$ 45,00 - Peso aproximado 1kg - serve até 10 pessoas</p>
-      </div>
-
-      <!-- Card 3: Doces Tradicionais -->
-      <div class="item">
-        <img src="./assets/doce.jpg" alt="Doces Tradicionais/Especiais" />
-        <h2>Doces Tradicionais</h2>
-        <p class="card-subtitle">Valores a partir de:</p>
-        <ul class="card-values">
-          <li>Brigadeiro Chocolate R$ 1,20</li>
-          <li>Beijinho R$ 1,20</li>
-          <li>Ninho R$ 1,20</li>
-          <li>Bem Casado R$ 1,20</li>
-        </ul>
-          <h2>Doces Especiais</h2>
-      
-        <ul class="card-values">
-          <li>Paçoca R$1,50</li>
-          <li>Supresa de uva R$ 1,50</li>
-          
-        </ul>
-        <p class="card-note">Pedido mínimo de 20 unidades.</p>
-      </div>
-
-      <!-- Card 4: Lembrancinhas -->
-      <div class="item">
-        <img src="./assets/cupcake.jpg" alt="Lembrancinhas" />
-        <h2>Lembrancinhas</h2>
-        <p class="card-subtitle">Valores a partir de:</p>
-        <ul class="card-values">
-          <li>Mini Cupcake R$ 3,00</li>
-          <li>Brownie Recheado R$ 7,00</li>
-          <li>Pirulita de Chocolate R$ 7,00</li>
-          <li>Cupcake R$ 7,00</li>
-          <li>Brownie no Palito R$ 10,00</li>
-          <li>Mini Trufa R$ 3,00</li>
-        </ul>
-        <p class="card-note">Personalização de cores e toppers sob consulta.</p>
-      </div>
-
-      <!-- Card 5: Naked Cake -->
-      <div class="item">
-        <img src="./assets/naked.jpeg" alt="Naked Cake" />
-        <h2>Naked Cake</h2>
-        <p class="card-subtitle">Valores a partir de:</p>
-        <ul class="card-values">
-          <li>PP - 1,5kg (12 fatias) R$ 125,00</li>
-          <li>P - 2,0kg (18 fatias) R$ 150,00</li>
-          <li>M - 18cm (22 fatias) R$ 180,00</li>
-          <li>G - 20cm (28 fatias) R$ 210,00</li>
-          <li>GG - 22cm (32 fatias) R$ 240,00</li>
-        </ul>
-        <p class="card-note">Decorações rústicas e sofisticadas. </p>
-      </div>
-
-       <!-- Card 6:  Kits-->
-      <div class="item">
-        <img src="./assets/kit.jpg" alt="Kit bolo e doces" />
-        <h2>Naked Cake</h2>
-        <p class="card-subtitle">Valores a partir de:</p>
-        <ul class="card-values">
-          <li></li>
-          
-        </ul>
-        <p class="card-note">Kit Bolo + 10 doces tradicionais<br>
-        Topper a partir de R$ 30,00. Dourado, glitter, flores e outros detalhes consultar valores. </p>
-      </div>
+    <!-- Sessão Bolos -->
+    <section id="bolos" class="item">
+      <h2>Bolos Personalizados</h2>
+      <img src="./assets/bolo.jpg" alt="Bolo decorado personalizado" loading="lazy">
+      <p>Bolos decorados para todas as ocasiões, feitos com carinho e qualidade.</p>
     </section>
 
-  <section class="info">
-  <h1>Informações Adicionais</h1>
-  <!-- <p>
-    Encomendas com 3 dias de antecedência. Pagamento via Pix ou cartão.
-  </p> -->
+    <!-- Sessão Doces -->
+    <section id="doces" class="item">
+      <h2>Doces Tradicionais</h2>
+      <img src="./assets/doces.jpg" alt="Doces variados em uma mesa" loading="lazy">
+      <p>Docinhos deliciosos para festas e eventos, feitos artesanalmente.</p>
+    </section>
 
-  <div class="info-cards">
-    <!-- Card 1 -->
-    <div class="info-card">
-      <h2>Massas Tradicionais</h2>
-      <ul>
-        <li>Branca</li>
-        <li>Chocolate</li>
-        <li>Red Velvet</li>
-      </ul>
-
-      <h2>Recheios Tradicionais</h2>
-      <ul>
-        <li>Brigadeiro Branco</li>
-        <li>Brigadeiro Chocolate</li>
-        <li>Bem Casado</li>
-        <li>Beijinho</li>
-      </ul>
-
-      <h2>Recheios Especiais</h2>
-      <ul>
-        <li>Ninho com Geleia de Morango</li>
-        <li>Doce de Leite</li>
-        <li>Paçoca</li>
-      </ul>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="info-card encomendas-card">
-      <h2>Encomendas</h2>
-      <ul>
-        <li>
-          <strong>Prazo:</strong> Mínimo de 72h de antecedência, podendo variar conforme disponibilidade da agenda.
-        </li>
-        <li>
-          <strong>Pagamento:</strong> 50% do valor total para confirmação da encomenda.
-        </li>
-        <li>
-          <strong>Formas de pagamento:</strong> Transferência | Pix | Cartão de crédito (com acréscimo).
-        </li>
-        <li>
-          <strong>Cancelamento:</strong> Em caso de desistência, não será devolvido o valor inicial de 50% pago pelo cliente.
-        </li>
-        <li>
-          <strong>Atenção:</strong> Chantininho em cores escuras podem manchar e amargar devido à grande quantidade de corante.
-        </li>
-      </ul>
-      <p class="contact"><i class="fab fa-whatsapp"></i> 81-981802018</p>
-    </div>
-  </div>
-</section>
-
-
+    <!-- Sessão Lembrancinhas -->
+    <section id="lembrancinhas" class="item">
+      <h2>Lembrancinhas</h2>
+      <img src="./assets/lembrancinhas.jpg" alt="Lembrancinhas de acrílico com cupcake" loading="lazy">
+      <p>Lembrancinhas criativas e personalizadas para encantar seus convidados.</p>
+    </section>
   </main>
-<footer>
-  <div class="footer-content">
-    <div class="footer-top">
-      <div class="footer-instagram">
-        <a href="https://www.instagram.com/verdadeirocupcake/"
-           target="_blank"
-           class="instagram-link">
-           <i class="fab fa-instagram"></i> @verdadeirocupcake
-        </a>
-      </div>
 
-      <div class="map-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.840152264627!2d-34.90979382417488!3d-7.911761278748884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1433507e8efd%3A0x87d043408e9410bb!2sR.%20Quarenta%20e%20Oito%2C%20256%20-%20Caet%C3%A9s%20III%2C%20Abreu%20e%20Lima%20-%20PE%2C%2053545-070!5e0!3m2!1spt-BR!2sbr!4v1759503934556!5m2!1spt-BR!2sbr"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+  <!-- Contato -->
+  <footer id="contato">
+    <h2>Contato</h2>
+    <p>📍 Abreu e Lima - PE</p>
+    <p>📞 WhatsApp: <a href="https://wa.me/5581999999999" target="_blank" rel="noopener">Enviar mensagem</a></p>
+    <p>© 2025 Verdadeiro Cupcake - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Botão voltar ao topo -->
+  <a href="#" id="back-to-top" title="Voltar ao topo">
+    <i class="material-icons">arrow_upward</i>
+  </a>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
     </div>
-
-    <p id="footer-text">
-      Desenvolvido por @anikape - <span id="current-date"></span>
-    </p>
   </div>
-</footer>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script> new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
 
-
-
-
-<a href="#" id="back-to-top" title="Voltar ao topo">
-  <i class="material-icons">arrow_upward</i>
-</a>
-
-
-
-<!-- <a href="https://wa.me/5581981802018" target="_blank" class="whatsapp-btn">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="#fff">
-    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.828.741 5.463 2.03 7.744L0 32l8.491-2.006C10.784 30.051 13.35 31 16 31c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.25 22.994c-.356.998-2.083 1.966-2.879 2.104-.771.133-1.655.19-2.492-.056-.84-.247-2.009-.798-4.57-2.506-1.69-1.142-2.829-2.552-3.172-3.38-.336-.832-.347-1.552-.02-2.147.318-.6.961-.956 1.442-1.22.369-.2.498-.34.748-.563.238-.212.27-.354.402-.587.127-.226.064-.422-.03-.593-.093-.169-.828-1.994-1.138-2.732-.297-.718-.597-.618-.826-.63-.21-.014-.45-.017-.686-.017s-.568.084-.868.402c-.298.315-1.138 1.115-1.138 2.723 0 1.607 1.165 3.156 1.33 3.375.167.218 2.29 3.494 5.551 4.764.777.335 1.382.535 1.851.684.778.236 1.485.202 2.043.122.624-.086 2.083-.852 2.378-1.674.294-.822.294-1.526.206-1.675-.088-.152-.321-.243-.674-.427z"/>
-  </svg>
-</a> -->
-
-<a href="https://wa.me/5581981802018" target="_blank" class="whatsapp-float">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
-
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
-
-
- <script src="script.js"></script>
+  <!-- Script botão -->
+  <script src="script.js"></script>
 </body>
 </html>
