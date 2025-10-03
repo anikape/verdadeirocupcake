@@ -1,241 +1,128 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Luckiest+Guy&family=Rubik:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <title>Verdadeiro Cupacke</title>
-  </head>
-  <body>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verdadeiro Cupcake</title>
 
-    <header>
-      <img class="headerLogo" src="./assets/logo1.png" alt="Logo verdadeiro Cupcake">
-      <h1>Verdadeiro Cupacke</h1>
-    </header>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Luckiest+Guy&family=Rubik:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-    <main class="container">
-    
+  <!-- CSS -->
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="./assets/logo1.png" alt="Logo Verdadeiro Cupcake" class="headerLogo" />
+      <h1>Verdadeiro Cupcake</h1>
+    </div>
+
+    <!-- Botão hambúrguer -->
+    <div class="menu-toggle">
+      <span class="material-icons">menu</span>
+    </div>
+
+    <!-- Menu navegação -->
+    <nav>
       <ul>
         <li><a href="#">Bolos Personalizados</a></li>
         <li><a href="#">Bolo Vulcão</a></li>
         <li><a href="#">Doces Tradicionais</a></li>
-        <li><a href="#">Doces Especiais/a></li>
-        <li><a href="#">Lembracinhas</a></li>
+        <li><a href="#">Doces Especiais</a></li>
+        <li><a href="#">Lembrancinhas</a></li>
         <li><a href="#">Naked Cake</a></li>
-       
       </ul>
+    </nav>
+  </header>
 
-      <section class="menu">
-
-        <!-- Primeiro Item -->
-        
-        <div class="item">
-          <div class="badge">Bolos Personalizados</div>
-        
-          <div class="foto">
-           <img src="./assets/bolo.jpg" alt="" srcset="">
-          </div>
-          <div class="keterangan">
-            <div class="singkat">Bolo de Andar 
-            </div>
-            <div class="bintang">
-              <span class="material-icons active">star</span>
-              <span class="material-icons active">star</span>
-              <span class="material-icons active">star</span>
-              <span class="material-icons active">star</span>
-              <span class="material-icons active">star</span>
-              
-            </div>
-          </div>
-          <div class="nama">
-            <p>Valores a partir de:</p> <br>
-            P    R$ 280,00 (3 a 3,5kg) <br>
-            M   R$ 390,00 (4,5 a 5kg) <br>
-            G    R$ 470,00 (6,5 a 7kg)
-            
-          </div>
-          <div class="harga">
-         <span class="merah">Topper a partir de 30,00
-        </span> <br><br>
-            <span class="merah">Dourado, gliter, flores e outros detalhes consultar valores</span>
-          </div>
-        </div>
-
-          <!-- Segundo Item -->
-
-          <div class="item">
-            <div class="badge">Bolo Vulcão</div>
-          
-            <div class="foto">
-             <img src="./assets/vulcao.png" alt="" srcset="">
-            </div>
-            <div class="keterangan">
-              <div class="singkat">Bolo Vulcão
-              </div>
-              <div class="bintang">
-                <span class="material-icons active">star</span>
-                <span class="material-icons active">star</span>
-                <span class="material-icons active">star</span>
-                <span class="material-icons active">star</span>
-                <span class="material-icons active">star</span>
-                
-              </div>
-            </div>
-            <div class="nama">
-              <p>Sabores</p> <br>
-              
-             Red Velvet <br>
-             Bem Casado <br>
-             Chocolate <br>
-             Brigadeiro Branco  <br>
-             Paçoca <br>
-             Beijinho<br>
-              
-              
-            </div>
-            <div class="harga">
-           <span class="merah"> R$ 45,00 (1kg)
-          </span> <br><br>
-             
-            </div>
-          </div>
-
-           <!-- Terceiro Item -->
-
-           <div class="item">
-            <div class="badge">Doces Tradicionais/Especiais</div>
-          
-            <div class="foto">
-             <img src="./assets/doce.png" alt="" srcset="">
-            </div>
-            <div class="keterangan">
-              <div class="singkat">Doces Tradicionais
-              </div>
-              <div class="bintang">
-                <span class="material-icons active">star</span>
-                <span class="material-icons active">star</span>
-                <span class="material-icons active">star</span>
-                <span class="material-icons active">star</span>
-                <span class="material-icons active">star</span>
-                
-              </div>
-            </div>
-            <div class="nama">
-              <p>* Tradiconais</p> <br>
-              
-             Brigadeiro Chocolate<br>
-             Bem Casado <br>
-             Ninho <br>
-             Beijinho<br> <br>
-
-             <p>* Especiais</p> <br>
-
-             Paçoca<br>
-            Surpresa de uva <br>
-             Ninho <br>
-            
-              
-            </div>
-            <div class="harga">
-           <span class="merah"> Tradicionais  R$ 1,20 - Pedido mínimo 20 unidades <br>
-            Especiais R$ 1,50 - Pedido mínimo 20 unidades
-          </span> <br><br>
-             
-            </div>
-          </div>
-
-             <!-- Quarto Item -->
-
-             <div class="item">
-              <div class="badge">Lembracinhas</div>
-            
-              <div class="foto">
-               <img src="./assets/brownie.png" alt="" srcset="">
-              </div>
-              <div class="keterangan">
-                <div class="singkat">Lembracinhas
-                </div>
-                <div class="bintang">
-                  <span class="material-icons active">star</span>
-                  <span class="material-icons active">star</span>
-                  <span class="material-icons active">star</span>
-                  <span class="material-icons active">star</span>
-                  <span class="material-icons active">star</span>
-                  
-                </div>
-              </div>
-              <div class="nama">
-                <p>Lembracinhas</p> <br>
-                
-               Brownie Recheado - R$ 7,00 <br><br>
-               Brownie no Palito - R$ 10,00 <br><br>
-               Pirulito de Chocolate - R$ 7,00 <br><br>
-               Cupacke - R$ 7,00 <br><br>
-               Mini Cupcake - R$ 3,00<br><br>
-               Mini Trufa - R$ 3,00
-              
-                
-              </div>
-              <div class="harga">
-             <span class="merah"> 
-            </span> <br><br>
-               
-              </div>
-            </div>
-
-   <!-- Quinto Item -->
-
-   <div class="item">
-    <div class="badge">Naked Cake</div>
-  
-    <div class="foto">
-     <img src="./assets/naked.jpeg" alt="" srcset="">
-    </div>
-    <div class="keterangan">
-      <div class="singkat">Naked Cake
+  <main>
+    <section class="menu">
+      <!-- Card 1: Bolos Personalizados -->
+      <div class="item">
+        <img src="./assets/bolo.jpg" alt="Bolo Personalizado" />
+        <h2>Bolos Personalizados</h2>
+        <p class="card-subtitle">Valores a partir de:</p>
+        <ul class="card-values">
+          <li>P R$ 280,00 (3 a 3,5KG)</li>
+          <li>M R$ 390,00 (4,5 a 5KG)</li>
+          <li>G R$ 470,00 (6,5 a 7KG)</li>
+        </ul>
+        <p class="card-note">Topper a partir de R$ 30,00. Dourado, glitter, flores e outros detalhes consultar valores.</p>
       </div>
-      <div class="bintang">
-        <span class="material-icons active">star</span>
-        <span class="material-icons active">star</span>
-        <span class="material-icons active">star</span>
-        <span class="material-icons active">star</span>
-        <span class="material-icons active">star</span>
-        
-      </div>
-    </div>
-    <div class="nama">
-      <p> Valores A partir de:</p> <br>
-      
-    PP 14CM - 1,5KG - 12 FATIAS --- R$ 125,00 <br><br>
-    p 16 cm - 2,0kg - 18 fatias --- R$ 150,00<br><br>
-    M 18 cm - 2,5kg - 22 fatias --- R$ 180,00 <br><br>
-    G 20 cm - 3,0kg - 28 fatias --- R$ 210,00 <br><br>
-    GG 22 cm - 3,5kg - 32fatias --- R$ 240,00
-    
-      
-    </div>
-    <div class="harga">
-   <span class="merah"> 
-  </span> <br><br>
-     
-    </div>
-  </div>
 
-         
-      </section>
-    <section class="info">
-      <h1>Informações Adiconais</h1>
+      <!-- Card 2: Bolo Vulcão -->
+      <div class="item">
+        <img src="./assets/vulcao.jpg" alt="Bolo Vulcão" />
+        <h2>Bolo Vulcão</h2>
+        <p class="card-subtitle">Valores a partir de:</p>
+        <ul class="card-values">
+          <li>P R$ 260,00</li>
+          <li>M R$ 380,00</li>
+          <li>G R$ 450,00</li>
+        </ul>
+        <p class="card-note">Opções de chocolate belga ou trufado. Consulte adicionais de decoração.</p>
+      </div>
+
+      <!-- Card 3: Doces Tradicionais -->
+      <div class="item">
+        <img src="./assets/doce.jpg" alt="Doces Tradicionais" />
+        <h2>Doces Tradicionais</h2>
+        <p class="card-subtitle">Valores a partir de:</p>
+        <ul class="card-values">
+          <li>Brigadeiro R$ 3,50</li>
+          <li>Beijinho R$ 3,50</li>
+          <li>Casadinho R$ 4,00</li>
+        </ul>
+        <p class="card-note">Pacotes personalizados conforme quantidade e sabor.</p>
+      </div>
+
+      <!-- Card 4: Lembrancinhas -->
+      <div class="item">
+        <img src="./assets/cupcake.jpg" alt="Lembrancinhas" />
+        <h2>Lembrancinhas</h2>
+        <p class="card-subtitle">Valores a partir de:</p>
+        <ul class="card-values">
+          <li>Mini Cupcake R$ 6,00</li>
+          <li>Caixa com 6 R$ 35,00</li>
+          <li>Caixa com 12 R$ 65,00</li>
+        </ul>
+        <p class="card-note">Personalização de cores e toppers sob consulta.</p>
+      </div>
+
+      <!-- Card 5: Naked Cake -->
+      <div class="item">
+        <img src="./assets/naked.jpeg" alt="Naked Cake" />
+        <h2>Naked Cake</h2>
+        <p class="card-subtitle">Valores a partir de:</p>
+        <ul class="card-values">
+          <li>P R$ 300,00</li>
+          <li>M R$ 420,00</li>
+          <li>G R$ 500,00</li>
+        </ul>
+        <p class="card-note">Decorações rústicas e sofisticadas. Flores naturais opcional.</p>
+      </div>
     </section>
-    </main>
-  </body>
+
+    <section class="info">
+      <h1>Informações Adicionais</h1>
+      <p>Encomendas com 3 dias de antecedência. Pagamento via Pix ou cartão.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por @anikape</p>
+  </footer>
+
+  <script>
+    // Menu hambúrguer
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav ul");
+
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  </script>
+</body>
 </html>

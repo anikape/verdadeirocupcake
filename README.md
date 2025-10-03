@@ -1,4 +1,4 @@
-# verdadeirocupcake
+# verdadeirocupca
 
 Paleta de cores
 
