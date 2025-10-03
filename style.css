@@ -180,6 +180,33 @@ footer {
   font-size: 0.9rem;
 }
 
+.whatsapp-float {
+    position: fixed;
+    bottom: 80px; /* acima do footer */
+    right: 20px; /* distância da borda direita */
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+  }
+
+  .whatsapp-float i {
+    font-size: 28px;
+  }
+
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
   nav ul {
