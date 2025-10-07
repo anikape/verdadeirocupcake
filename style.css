@@ -16,6 +16,7 @@
 html,
 body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,12 +31,13 @@ body {
 
 main {
   flex: 1;
+  padding-top: 80px; /* espaço para header fixo */
 }
 
 /* ===== BOTÃO VOLTAR AO TOPO ===== */
 #back-to-top {
   position: fixed;
-  bottom: 150px; /* acima do WhatsApp */
+  bottom: 150px;
   right: 20px;
   background-color: var(--verde-destaque);
   color: #fff;
@@ -48,7 +50,7 @@ main {
   text-decoration: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   font-size: 24px;
-  z-index: 1100; /* acima do WhatsApp */
+  z-index: 1100;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, transform 0.3s;
@@ -70,7 +72,11 @@ header {
   background: var(--branco-claro);
   padding: 15px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 .logo {
   display: flex;
@@ -102,7 +108,8 @@ nav ul li a {
   border-radius: 5px;
   transition: 0.3s;
 }
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a:focus {
   background: var(--rosa-claro);
   color: #fff;
 }
@@ -383,19 +390,21 @@ footer {
   left: auto !important;
   z-index: 1500 !important;
 }
+
 /* ===== RESPONSIVIDADE MOBILE ===== */
 @media (max-width: 768px) {
   nav ul {
     display: none;
     flex-direction: column;
     background: var(--branco-claro);
-    position: absolute;
-    top: 70px;
-    right: 20px;
+    position: fixed;
+    top: 60px;
+    right: 0;
     width: 200px;
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 0 8px;
+    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1200;
   }
   nav ul.active {
     display: flex;
@@ -459,8 +468,7 @@ footer {
 
 /* ===== ANIMAÇÃO LOGO ===== */
 @keyframes floatZoom {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) scale(1);
   }
   50% {
