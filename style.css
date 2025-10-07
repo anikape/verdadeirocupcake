@@ -183,6 +183,31 @@ nav ul li a:focus {
   margin-top: 5px;
 }
 
+.detalhe {
+  display: inline-block;      /* Permite definir largura e altura */
+  padding: 0.5em 1em;         /* Espaçamento interno */
+  background-color: var(--verde-destaque);
+  color: #fff;                /* Cor do texto */
+  font-weight: 600;
+  text-align: center;         /* Centraliza o texto */
+  text-decoration: none;      /* Remove underline do link */
+  border-radius: 8px;         /* Canto arredondado */
+  transition: background-color 0.3s, transform 0.2s; /* Animação suave */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Sombra */
+  margin-top: 1em;
+}
+
+.detalhe:hover {
+  background-color: #039e46;  /* Tom mais escuro ao passar o mouse */
+  transform: translateY(-2px); /* Leve efeito de elevação */
+}
+
+.detalhe:active {
+  transform: translateY(0);   /* Volta ao normal ao clicar */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
 /* ===== INFO ===== */
 .info {
   text-align: center;
