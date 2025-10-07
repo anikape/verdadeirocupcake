@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verdadeiro Cupcake</title>
+
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Luckiest+Guy&family=Rubik:wght@300;400;700&display=swap"
@@ -13,43 +14,53 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <!-- CSS -->
-    <link href="style.css" rel="stylesheet" />
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+    <!-- HEADER -->
     <header>
       <div class="logo">
         <img
           src="./assets/logo1.png"
           alt="Logo Verdadeiro Cupcake"
           class="headerLogo"
+          loading="lazy"
         />
         <h1>Verdadeiro Cupcake</h1>
       </div>
+
       <!-- Botão hambúrguer -->
-      <div class="menu-toggle"><span class="material-icons">menu</span></div>
+      <div class="menu-toggle">
+        <span class="material-icons">menu</span>
+      </div>
+
       <!-- Menu navegação -->
       <nav>
         <ul>
-          <li><a href="#">Bolos Personalizados</a></li>
-          <li><a href="#">Bolo Vulcão</a></li>
-          <li><a href="#">Doces Tradicionais</a></li>
-          <li><a href="#">Doces Especiais</a></li>
-          <li><a href="#">Lembrancinhas</a></li>
-          <li><a href="#">Naked Cake</a></li>
+          <li><a href="#bolo">Bolos Personalizados</a></li>
+          <li><a href="#vulcao">Bolo Vulcão</a></li>
+          <li><a href="#doces-tradicionais">Doces Tradicionais</a></li>
+          <li><a href="#doces-especiais">Doces Especiais</a></li>
+          <li><a href="#lembrancinhas">Lembrancinhas</a></li>
+          <li><a href="#acetato">Bolo no Acetato</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
     </header>
 
+    <!-- MAIN -->
     <main>
       <section class="menu">
         <!-- Card 1: Bolos Personalizados -->
-        <div class="item">
-          <img src="./assets/bolo.jpg" alt="Bolo Personalizado" />
+        <div class="item" id="bolo">
+          <img src="./assets/bolo.jpg" alt="Bolo Personalizado" loading="lazy" />
           <h2>Bolos Personalizados</h2>
           <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
@@ -67,8 +78,8 @@
         </div>
 
         <!-- Card 2: Bolo Vulcão -->
-        <div class="item">
-          <img src="./assets/vulcao.jpg" alt="Bolo Vulcão" />
+        <div class="item" id="vulcao">
+          <img src="./assets/vulcao.jpg" alt="Bolo Vulcão" loading="lazy" />
           <h2>Bolo Vulcão</h2>
           <p class="card-subtitle">Sabores</p>
           <ul class="card-values">
@@ -79,14 +90,12 @@
             <li>Paçoca</li>
             <li>Beijinho</li>
           </ul>
-          <p class="card-note">
-            R$ 45,00 - Peso aproximado 1kg - serve até 10 pessoas
-          </p>
+          <p class="card-note">R$ 45,00 - Peso aproximado 1kg - serve até 10 pessoas</p>
         </div>
 
-        <!-- Card 3: Doces Tradicionais e Especiais -->
-        <div class="item">
-          <img src="./assets/doce.jpg" alt="Doces Tradicionais/Especiais" />
+        <!-- Card 3: Doces Tradicionais -->
+        <div class="item" id="doces-tradicionais">
+          <img src="./assets/doce.jpg" alt="Doces Tradicionais" loading="lazy" />
           <h2>Doces Tradicionais</h2>
           <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
@@ -95,17 +104,23 @@
             <li>Ninho R$ 1,20</li>
             <li>Bem Casado R$ 1,20</li>
           </ul>
+        </div>
+
+        <!-- Card 4: Doces Especiais -->
+        <div class="item" id="doces-especiais">
+          <img src="./assets/doce.jpg" alt="Doces Especiais" loading="lazy" />
           <h2>Doces Especiais</h2>
+          <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
-            <li>Paçoca R$1,50</li>
+            <li>Paçoca R$ 1,50</li>
             <li>Supresa de uva R$ 1,50</li>
           </ul>
           <p class="card-note">Pedido mínimo de 20 unidades.</p>
         </div>
 
-        <!-- Card 4: Lembrancinhas -->
-        <div class="item">
-          <img src="./assets/cupcake.jpg" alt="Lembrancinhas" />
+        <!-- Card 5: Lembrancinhas -->
+        <div class="item" id="lembrancinhas">
+          <img src="./assets/cupcake.jpg" alt="Lembrancinhas" loading="lazy" />
           <h2>Lembrancinhas</h2>
           <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
@@ -116,15 +131,13 @@
             <li>Brownie no Palito R$ 10,00</li>
             <li>Mini Trufa R$ 3,00</li>
           </ul>
-          <p class="card-note">
-            Personalização de cores e toppers sob consulta.
-          </p>
+          <p class="card-note">Personalização de cores e toppers sob consulta.</p>
         </div>
 
-        <!-- Card 5: Naked Cake -->
-        <div class="item">
-          <img src="./assets/naked.jpeg" alt="Naked Cake" />
-          <h2>Naked Cake</h2>
+        <!-- Card 6: Bolo no Acetato -->
+        <div class="item" id="acetato">
+          <img src="./assets/acetato.jpg" alt="Bolo no Acetato" loading="lazy" />
+          <h2>Bolo no Acetato</h2>
           <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
             <li>PP - 1,5kg (12 fatias) R$ 125,00</li>
@@ -135,23 +148,9 @@
           </ul>
           <p class="card-note">Decorações rústicas e sofisticadas.</p>
         </div>
-
-        <!-- Card 6: Kits -->
-        <div class="item">
-          <img src="./assets/kit.jpg" alt="Kit bolo e doces" />
-          <h2>Kit Bolo + Doces</h2>
-          <p class="card-subtitle">Valores a partir de:</p>
-          <ul class="card-values">
-            <li></li>
-          </ul>
-          <p class="card-note">
-            Kit Bolo + 10 doces tradicionais<br />
-            Topper a partir de R$ 30,00. Dourado, glitter, flores e outros
-            detalhes consultar valores.
-          </p>
-        </div>
       </section>
 
+      <!-- INFO -->
       <section class="info">
         <h1>Informações Adicionais</h1>
         <div class="info-cards">
@@ -182,26 +181,11 @@
           <div class="info-card encomendas-card">
             <h2>Encomendas</h2>
             <ul>
-              <li>
-                <strong>Prazo:</strong> Mínimo de 72h de antecedência, podendo
-                variar conforme disponibilidade da agenda.
-              </li>
-              <li>
-                <strong>Pagamento:</strong> 50% do valor total para confirmação
-                da encomenda.
-              </li>
-              <li>
-                <strong>Formas de pagamento:</strong> Transferência | Pix |
-                Cartão de crédito (com acréscimo).
-              </li>
-              <li>
-                <strong>Cancelamento:</strong> Em caso de desistência, não será
-                devolvido o valor inicial de 50% pago pelo cliente.
-              </li>
-              <li>
-                <strong>Atenção:</strong> Chantininho em cores escuras podem
-                manchar e amargar devido à grande quantidade de corante.
-              </li>
+              <li><strong>Prazo:</strong> Mínimo de 72h de antecedência.</li>
+              <li><strong>Pagamento:</strong> 50% do valor total.</li>
+              <li><strong>Formas de pagamento:</strong> Transferência | Pix | Cartão de crédito (com acréscimo).</li>
+              <li><strong>Cancelamento:</strong> Valor inicial de 50% não será devolvido.</li>
+              <li><strong>Atenção:</strong> Chantininho em cores escuras podem manchar e amargar.</li>
             </ul>
             <p class="contact"><i class="fab fa-whatsapp"></i> 81-981802018</p>
           </div>
@@ -209,7 +193,8 @@
       </section>
     </main>
 
-    <footer>
+    <!-- FOOTER -->
+    <footer id="contato">
       <div class="footer-content">
         <div class="footer-top">
           <div class="footer-instagram">
@@ -223,16 +208,14 @@
           </div>
           <div class="map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.840152264627!2d-34.90979382417488!3d-7.911761278748884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1433507e8efd%3A0x87d043408e9410bb!2sR.%20Quarenta%20e%20Oito%2C%20256%20-%20Caet%C3%A9s%20III%2C%20Abreu%20e%20Lima%20-%20PE%2C%2053545-070!5e0!3m2!1spt-BR!2sbr!4v1759503934556!5m2!1spt-BR!2sbr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.840152264627!2d-34.90979382417488!3d-7.911761278748884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1433507e8efd%3A0x87d043408e9410bb!2sR.%20Quarenta%20e%20Oito%2C%20256%20-%20Caet%C3%A9s%20III%2C%20Abreu%20e%20Lima%20-%20PE%2C%2055345-070!5e0!3m2!1spt-BR!2sbr!4v1759503934556!5m2!1spt-BR!2sbr"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>
-        <p id="footer-text">
-          Desenvolvido por @anikape - <span id="current-date"></span>
-        </p>
+        <p id="footer-text">Desenvolvido por @anikape - <span id="current-date"></span></p>
       </div>
     </footer>
 
@@ -242,11 +225,7 @@
     </a>
 
     <!-- Botão WhatsApp -->
-    <a
-      href="https://wa.me/5581981802018"
-      target="_blank"
-      class="whatsapp-float"
-    >
+    <a href="https://wa.me/5581981802018" target="_blank" class="whatsapp-float">
       <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -255,10 +234,10 @@
       <div vw-access-button class="active"></div>
       <div vw-plugin-wrapper></div>
     </div>
-   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
     <!-- Script principal -->
     <script src="script.js"></script>
