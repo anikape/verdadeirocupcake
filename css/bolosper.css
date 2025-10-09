@@ -1,0 +1,179 @@
+/* Estilos específicos para a página de Bolos Personalizados */
+
+main {
+  flex: 1;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-title {
+  text-align: center;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 2.4rem;
+  color: var(--verde-destaque);
+  margin: 20px 0 15px;
+}
+
+.description {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 25px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: #333;
+  padding: 0 15px;
+}
+
+/* ===== CARROSSEL ===== */
+.carousel-container {
+  position: relative;
+  width: 95%;
+  max-width: 1000px;
+  overflow: hidden;
+  margin: 0 auto 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: white;
+  padding: 20px;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carousel-item {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  height: 700px; /* Altura fixa para uniformidade */
+  padding: 10px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Mostra a imagem inteira, sem corte */
+  object-position: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+  max-width: 85%; /* Limita largura para evitar esticamento */
+  background: #d99197; /* Fundo suave para preencher espaços vazios */
+}
+
+.carousel-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Setas de navegação */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: var(--vermelho-escuro);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.2s;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+  left: 15px;
+}
+.carousel-btn.next {
+  right: 15px;
+}
+
+/* Indicadores */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.indicator.active {
+  background: var(--verde-destaque);
+}
+
+/* ===== BOTÃO VOLTAR ===== */
+.back-button {
+  display: block;
+  width: fit-content;
+  margin: 20px auto 0;
+  padding: 12px 28px;
+  background: var(--verde-destaque);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.back-button:hover {
+  background: #039e46;
+  transform: translateY(-3px);
+}
+
+.back-button i {
+  margin-right: 8px;
+}
+
+/* ===== WHATSAPP FLUTUANTE ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float i {
+  font-size: 28px;
+}
