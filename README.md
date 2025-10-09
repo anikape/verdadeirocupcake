@@ -1,4 +1,7 @@
-# verdadeirocupca
+# verdadeirocupcake
+
+Confeitaria artesanal
+Cidade: Abreu e Lima - PE
 
 Paleta de cores
 
