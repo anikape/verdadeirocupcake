@@ -34,6 +34,7 @@ main {
   gap: 25px;
   padding: 0 20px;
   margin-top: 10px;
+  position: relative; /* necessário para z-index funcionar corretamente */
 }
 
 .gallery-item {
@@ -43,11 +44,21 @@ main {
   background: white;
   aspect-ratio: 4 / 5;
   transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s;
+  position: relative;
+  z-index: 1;
 }
 
 .gallery-item:hover {
   transform: scale(1.03);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  z-index: 10; /* Fica acima das outras */
+}
+
+/* Efeito: desfoca as outras imagens SOMENTE quando o hover está ativo */
+.gallery:hover .gallery-item:not(:hover) {
+  filter: blur(2px) grayscale(10%);
+  opacity: 0.9;
+  transition: filter 0.3s, opacity 0.3s;
 }
 
 .gallery-item img {
