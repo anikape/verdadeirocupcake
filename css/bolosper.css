@@ -1,4 +1,4 @@
-/* Estilos específicos para a página de Bolos Personalizados */
+/* Estilos específicos para páginas secundárias (Bolos, Lembrancinhas, etc.) */
 
 main {
   flex: 1;
@@ -9,9 +9,14 @@ main {
   align-items: center;
 }
 
+/* Ajuste específico para a página de Lembrancinhas */
+.lembrancinhas-page {
+  padding-top: 40px; /* Reduzido para mostrar conteúdo mais cedo */
+}
+
 .page-title {
   text-align: center;
-  font-family: "Luckiest Guy", cursive;
+  font-family: 'Parisienne', cursive;
   font-size: 2.4rem;
   color: var(--verde-destaque);
   margin: 20px 0 15px;
@@ -27,31 +32,82 @@ main {
   padding: 0 15px;
 }
 
+/* Estilos para a seção de delícias */
+.section-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 2rem;
+  color: var(--vermelho-escuro);
+  margin: 30px 0 15px;
+  text-align: center;
+}
+
+.section-description {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  line-height: 1.7;
+}
+
+.delicacies-list {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.05rem;
+  color: #444;
+  max-width: 800px;
+  margin: 20px auto;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.delicacies-list li {
+  margin-bottom: 12px;
+}
+
+.delicacies-list strong {
+  color: var(--verde-destaque); /* rosa pink */
+}
+
+.highlight-text {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+  color: var(--vermelho-escuro);
+  text-align: center;
+  margin: 25px auto;
+  font-weight: 600;
+}
+
 /* ===== GALERIA EM GRID ===== */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 25px;
   padding: 0 20px;
-  margin-top: 10px;
-  position: relative; /* necessário para z-index funcionar corretamente */
+  margin-top: 15px;
+  position: relative;
 }
 
 .gallery-item {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-  background: white;
+  /* background: white; */
   aspect-ratio: 4 / 5;
   transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 10px;
 }
 
 .gallery-item:hover {
   transform: scale(1.03);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
-  z-index: 10; /* Fica acima das outras */
+  z-index: 10;
 }
 
 /* Efeito: desfoca as outras imagens SOMENTE quando o hover está ativo */
@@ -67,10 +123,21 @@ main {
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
+  margin-bottom: 0;
 }
 
 .gallery-item:hover img {
   transform: scale(1.05);
+}
+
+/* Estilo para legendas */
+.gallery-item figcaption {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  color: var(--vermelho-escuro);
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
 }
 
 /* ===== BOTÃO VOLTAR ===== */
@@ -90,7 +157,7 @@ main {
 }
 
 .back-button:hover {
-  background: #039e46;
+  background: #d81b60; /* tom mais escuro do rosa */
   transform: translateY(-3px);
 }
 
@@ -133,5 +200,8 @@ main {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     padding: 0 15px;
+  }
+  .lembrancinhas-page {
+    padding-top: 30px;
   }
 }
