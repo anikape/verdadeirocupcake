@@ -140,6 +140,13 @@ main {
   font-weight: 600;
 }
 
+/* Estilos específicos para a página de Bolo de Andar */
+.bolo-andar-page {
+  padding-top: 40px;
+}
+
+/* O restante dos estilos já está coberto pelas classes existentes (.gallery, .page-title, etc.) */
+
 /* ===== BOTÃO VOLTAR ===== */
 .back-button {
   display: block;
@@ -191,6 +198,8 @@ main {
 .whatsapp-float i {
   font-size: 28px;
 }
+
+
 
 /* ===== RESPONSIVO MOBILE ===== */
 @media (max-width: 768px) {
