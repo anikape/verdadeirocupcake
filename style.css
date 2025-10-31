@@ -1,6 +1,6 @@
 :root {
   --rosa-principal: #d99197;
-  --verde-destaque: #e91e63; /* Rosa pink vibrante */
+  --verde-destaque: #e91e63; 
   --vermelho-escuro: #a64444;
   --branco-claro: #f2f2f2;
   --rosa-claro: #f2bdbd;
@@ -460,19 +460,24 @@ footer {
     flex-direction: column;
     background: var(--branco-claro);
     position: fixed;
-    top: 60px;
+    top: 0;
     right: 0;
     width: 200px;
-    padding: 15px;
-    border-radius: 0 0 0 8px;
+    height: 100vh; /* cobre toda a altura */
+    padding: 20px 15px;
     box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.2);
     z-index: 1200;
   }
   nav ul.active {
     display: flex;
   }
+
   .menu-toggle {
     display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px; /* X dentro da área do menu */
+    z-index: 1300;
   }
   .menu {
     flex-direction: column;
@@ -547,8 +552,7 @@ footer {
 
 /* ===== ANIMAÇÃO LOGO ===== */
 @keyframes floatZoom {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) scale(1);
   }
   50% {

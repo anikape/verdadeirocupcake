@@ -9,9 +9,11 @@ main {
   align-items: center;
 }
 
-/* Ajuste específico para a página de Lembrancinhas */
-.lembrancinhas-page {
-  padding-top: 40px; /* Reduzido para mostrar conteúdo mais cedo */
+/* Ajuste específico para páginas secundárias */
+.lembrancinhas-page,
+.bolos-page,
+.outros-page {
+  padding-top: 40px;
 }
 
 .page-title {
@@ -32,52 +34,6 @@ main {
   padding: 0 15px;
 }
 
-/* Estilos para a seção de delícias */
-.section-title {
-  font-family: 'Rubik', sans-serif;
-  font-size: 2rem;
-  color: var(--vermelho-escuro);
-  margin: 30px 0 15px;
-  text-align: center;
-}
-
-.section-description {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1.1rem;
-  color: #333;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 20px;
-  line-height: 1.7;
-}
-
-.delicacies-list {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1.05rem;
-  color: #444;
-  max-width: 800px;
-  margin: 20px auto;
-  padding-left: 20px;
-  line-height: 1.8;
-}
-
-.delicacies-list li {
-  margin-bottom: 12px;
-}
-
-.delicacies-list strong {
-  color: var(--verde-destaque); /* rosa pink */
-}
-
-.highlight-text {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1.2rem;
-  color: var(--vermelho-escuro);
-  text-align: center;
-  margin: 25px auto;
-  font-weight: 600;
-}
-
 /* ===== GALERIA EM GRID ===== */
 .gallery {
   display: grid;
@@ -91,16 +47,14 @@ main {
 .gallery-item {
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-  /* background: white; */
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 2.8 / 4; /* aplica altura proporcional geral */
   transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s;
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* centraliza as imagens */
   padding-top: 10px;
 }
 
@@ -120,7 +74,7 @@ main {
 .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* mostra a imagem inteira sem cortar */
   display: block;
   transition: transform 0.4s ease;
   margin-bottom: 0;
@@ -129,23 +83,6 @@ main {
 .gallery-item:hover img {
   transform: scale(1.05);
 }
-
-/* Estilo para legendas */
-.gallery-item figcaption {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1rem;
-  color: var(--vermelho-escuro);
-  margin-top: 10px;
-  text-align: center;
-  font-weight: 600;
-}
-
-/* Estilos específicos para a página de Bolo de Andar */
-.bolo-andar-page {
-  padding-top: 40px;
-}
-
-/* O restante dos estilos já está coberto pelas classes existentes (.gallery, .page-title, etc.) */
 
 /* ===== BOTÃO VOLTAR ===== */
 .back-button {
@@ -164,7 +101,7 @@ main {
 }
 
 .back-button:hover {
-  background: #d81b60; /* tom mais escuro do rosa */
+  background: #d81b60;
   transform: translateY(-3px);
 }
 
@@ -199,8 +136,6 @@ main {
   font-size: 28px;
 }
 
-
-
 /* ===== RESPONSIVO MOBILE ===== */
 @media (max-width: 768px) {
   .page-title {
@@ -210,7 +145,9 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     padding: 0 15px;
   }
-  .lembrancinhas-page {
+  .lembrancinhas-page,
+  .bolos-page,
+  .outros-page {
     padding-top: 30px;
   }
 }
