@@ -1,8 +1,4 @@
-/* Estilos específicos para páginas secundárias (Bolos, Lembrancinhas, etc.) */
-
-
-/* Ajuste específico para páginas secundárias */
-.lembrancinhas-page,
+lembrancinhas-page,
 .bolos-page,
 .outros-page {
   padding-top: 40px;
@@ -10,7 +6,6 @@
 
 .page-title {
   text-align: center;
-  font-family: 'Parisienne', cursive;
   font-size: 2.4rem;
   color: var(--verde-destaque);
   margin: 20px 0 15px;
@@ -26,7 +21,9 @@
   padding: 0 15px;
 }
 
-/* ===== GALERIA EM GRID ===== */
+/* =========================================================
+   GALERIA EM GRID
+   ========================================================= */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -39,14 +36,14 @@
 .gallery-item {
   border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 2.8 / 4; /* aplica altura proporcional geral */
+  aspect-ratio: 2.8 / 4; /* altura proporcional */
   transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s;
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* centraliza as imagens */
+  justify-content: center;
   padding-top: 10px;
 }
 
@@ -56,7 +53,7 @@
   z-index: 10;
 }
 
-/* Efeito: desfoca as outras imagens SOMENTE quando o hover está ativo */
+/* Efeito: desfoca as outras imagens quando o hover está ativo */
 .gallery:hover .gallery-item:not(:hover) {
   filter: blur(2px) grayscale(10%);
   opacity: 0.9;
@@ -66,7 +63,7 @@
 .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* mostra a imagem inteira sem cortar */
+  object-fit: contain;
   display: block;
   transition: transform 0.4s ease;
   margin-bottom: 0;
@@ -76,11 +73,13 @@
   transform: scale(1.05);
 }
 
-/* ===== BOTÃO VOLTAR ===== */
+/* =========================================================
+   BOTÃO VOLTAR
+   ========================================================= */
 .back-button {
   display: block;
   width: fit-content;
-  margin: 40px auto 0;
+  margin: 40px auto 20px;
   padding: 12px 28px;
   background: var(--verde-destaque);
   color: white;
@@ -90,6 +89,7 @@
   font-size: 1.1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   transition: background 0.3s, transform 0.2s;
+
 }
 
 .back-button:hover {
@@ -101,34 +101,6 @@
   margin-right: 8px;
 }
 
-/* ===== WHATSAPP FLUTUANTE ===== */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  transition: transform 0.2s;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-
-.whatsapp-float i {
-  font-size: 28px;
-}
-
-/* ===== RESPONSIVO MOBILE ===== */
 @media (max-width: 768px) {
   .page-title {
     font-size: 2rem;

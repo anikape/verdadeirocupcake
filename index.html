@@ -3,22 +3,45 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verdadeiro Cupcake</title>
+
+    <title>Verdadeiro Cupcake - Bolos e Doces Personalizados em Abreu e Lima</title>
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Verdadeiro Cupcake oferece bolos personalizados, bolos de andar, lembrancinhas, doces e kits feitos com carinho em Abreu e Lima - PE. Encomende já o seu!"
+    />
+    <meta
+      name="keywords"
+      content="bolos personalizados, bolo vulcão, doces, lembrancinhas, bolos decorados, confeitaria Abreu e Lima, Verdadeiro Cupcake"
+    />
+    <meta name="author" content="Verdadeiro Cupcake" />
+    <meta property="og:title" content="Verdadeiro Cupcake - Bolos e Doces Personalizados" />
+    <meta
+      property="og:description"
+      content="Bolos e doces personalizados feitos com amor em Abreu e Lima - PE. Confira nossos produtos!"
+    />
+    <meta property="og:image" content="https://verdadeirocupcake.vercel.app/assets/logo1.png" />
+    <meta property="og:url" content="https://verdadeirocupcake.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/logo1.png" />
 
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Luckiest+Guy&family=Rubik:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -29,7 +52,7 @@
       <div class="logo">
         <img
           src="./assets/logo1.png"
-          alt="Logo Verdadeiro Cupcake"
+          alt="Logo da confeitaria Verdadeiro Cupcake"
           class="headerLogo"
           loading="lazy"
         />
@@ -37,7 +60,7 @@
       </div>
 
       <!-- Botão hambúrguer -->
-      <div class="menu-toggle">
+      <div class="menu-toggle" aria-label="Abrir menu de navegação">
         <span class="material-icons">menu</span>
       </div>
 
@@ -49,10 +72,10 @@
           <li><a href="#acetato">Bolo no Acetato</a></li>
           <li><a href="#vulcao">Bolo Vulcão</a></li>
           <li><a href="#lembrancinhas">Lembrancinhas</a></li>
-          <li><a href="#kits">Kits</a></li>
+          <li><a href="#doces-especiais">Kits</a></li>
           <li><a href="#presente">Caixa Presente</a></li>
-          <li><a href="#doces-tradicionais">Doces </a></li>
-          <li><a href="#add">Info Adiconais </a></li>
+          <li><a href="#doces-tradicionais">Doces</a></li>
+          <li><a href="#add">Informações</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
@@ -63,11 +86,7 @@
       <section class="menu">
         <!-- Bolos Personalizados -->
         <div class="item" id="bolo">
-          <img
-            src="./assets/bolo.jpg"
-            alt="Bolo Personalizado"
-            loading="lazy"
-          />
+          <img src="./assets/bolo.jpg" alt="Bolo personalizado decorado" loading="lazy" />
           <h2>Bolos Personalizados</h2>
           <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
@@ -80,17 +99,14 @@
             <li>GG R$ 390,00 (5Kg)</li>
           </ul>
           <p class="card-note">
-            Topper a partir de R$ 18,00. Dourado, glitter, flores e outros
-            detalhes consultar valores.
+            Topper a partir de R$ 18,00. Dourado, glitter, flores e outros detalhes sob consulta.
           </p>
-
           <a class="detalhe" href="bolospersonalizados.html">Mais Informações</a>
         </div>
 
-        <!-- Bolo de Andar-->
-
+        <!-- Bolo de Andar -->
         <div class="item" id="andar">
-          <img src="./assets/andar.jpg" alt="Bolo no Acetato" loading="lazy" />
+          <img src="./assets/andar.jpg" alt="Bolo de andar decorado" loading="lazy" />
           <h2>Bolo de Andar</h2>
           <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
@@ -98,21 +114,13 @@
             <li>M R$ 390,00 (4,5 a 5kg)</li>
             <li>G R$ 470,00 (6,5 a 7kg)</li>
           </ul>
-          <p class="card-note">
-            Topper a partir de 30,00 <br />
-            Dourado, gliter, flores naturais e outros detalhes consultar valores
-          </p>
-
+          <p class="card-note">Topper a partir de 30,00. Dourado, glitter e flores sob consulta.</p>
           <a class="detalhe" href="boloandar.html">Mais Informações</a>
         </div>
 
-        <!--  Bolo no Acetato -->
+        <!-- Bolo no Acetato -->
         <div class="item" id="acetato">
-          <img
-            src="./assets/acetato.jpg"
-            alt="Bolo no Acetato"
-            loading="lazy"
-          />
+          <img src="./assets/acetato.jpg" alt="Bolo no acetato" loading="lazy" />
           <h2>Bolo no Acetato</h2>
           <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
@@ -123,13 +131,12 @@
             <li>GG - 22cm (32 fatias) R$ 240,00</li>
           </ul>
           <p class="card-note">Decorações rústicas e sofisticadas.</p>
-
-          <a class="detalhe" href="">Mais Informações</a>
+          <a class="detalhe" href="#">Mais Informações</a>
         </div>
 
-        <!--  Bolo vulcão-->
+        <!-- Bolo Vulcão -->
         <div class="item" id="vulcao">
-          <img src="./assets/vulcao.jpg" alt="Bolo Vulcão" loading="lazy" />
+          <img src="./assets/vulcao.jpg" alt="Bolo vulcão de chocolate" loading="lazy" />
           <h2>Bolo Vulcão</h2>
           <p class="card-subtitle">Sabores</p>
           <ul class="card-values">
@@ -140,15 +147,13 @@
             <li>Paçoca</li>
             <li>Beijinho</li>
           </ul>
-          <p class="card-note">
-            R$ 49,90 - Peso aproximado 1kg - serve até 10 pessoas
-          </p>
+          <p class="card-note">R$ 49,90 - Peso aproximado 1kg - serve até 10 pessoas.</p>
           <a class="detalhe" href="vulcao.html">Mais Informações</a>
         </div>
 
-        <!--  Lembrancinhas -->
+        <!-- Lembrancinhas -->
         <div class="item" id="lembrancinhas">
-          <img src="./assets/cupcake.jpg" alt="Lembrancinhas" loading="lazy" />
+          <img src="./assets/cupcake.jpg" alt="Lembrancinhas com cupcakes personalizados" loading="lazy" />
           <h2>Lembrancinhas</h2>
           <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
@@ -161,87 +166,64 @@
             <li>Mini Trufa R$ 3,00</li>
             <li>Bem Casado R$ 6,00</li>
           </ul>
-          <p class="card-note">
-            Personalização de cores e toppers sob consulta.
-          </p>
-
+          <p class="card-note">Personalização de cores e toppers sob consulta.</p>
           <a class="detalhe" href="lembrancinhas.html">Mais Informações</a>
         </div>
 
-        <!--  Kits -->
-
+        <!-- Kits -->
         <div class="item" id="doces-especiais">
-          <img src="./assets/kit1.jpg" alt="Doces Especiais" loading="lazy" />
+          <img src="./assets/kit1.jpg" alt="Kit de doces e mini bolos" loading="lazy" />
           <h2>Kits</h2>
-
           <p class="card-subtitle">Valores a partir de:</p>
           <ul class="card-values">
             <li>Kit Mini Bolo 1kg + 4 cupcake + 10 doces R$ 150,00</li>
-            <li>
-              Kit PP Bolo 1,5kg + 4 cupcake + 20 doces + 4 pirulito R$ 250,00
-            </li>
-
-            <li>
-              Kit P Bolo 2,5kg + 6 cupcake + 30 doces + 6 pirulito + 6 brownie
-              R$ 390,00
-            </li>
+            <li>Kit PP Bolo 1,5kg + 4 cupcake + 20 doces + 4 pirulito R$ 250,00</li>
+            <li>Kit P Bolo 2,5kg + 6 cupcake + 30 doces + 6 pirulito + 6 brownie R$ 390,00</li>
           </ul>
-          <p class="card-note">Todos já decorados com tag</p>
-
-          <a class="detalhe" href="">Mais Informações</a>
+          <p class="card-note">Todos já decorados com tag.</p>
+          <a class="detalhe" href="#">Mais Informações</a>
         </div>
 
         <!-- Caixa Presente -->
         <div class="item" id="presente">
-          <img src="./assets/caixa.jpg" alt="Caixa Presente" loading="lazy" />
+          <img src="./assets/caixa.jpg" alt="Caixa presente com bolo e doces" loading="lazy" />
           <h2>Caixa Presente</h2>
-          <!-- <p class="card-subtitle">Valores a partir de:</p> -->
           <ul class="card-values">
-            <li>R$ 100,00</li>
+            <li>R$ 100,00</li>
             <li>Bolo 700g</li>
             <li>4 brigadeiros</li>
             <li>2 fotos</li>
-            <li>Mensagem </li></li>
+            <li>Mensagem</li>
           </ul>
-
-          <p class="card-note"></p>
-
-          <a class="detalhe" href="">Mais Informações</a>
+          <a class="detalhe" href="#">Mais Informações</a>
         </div>
 
+        <!-- Doces Tradicionais -->
+        <div class="item" id="doces-tradicionais">
+          <img src="./assets/doce.jpg" alt="Doces tradicionais e especiais" loading="lazy" />
+          <h2>Doces Tradicionais</h2>
+          <ul class="card-values">
+            <li>Brigadeiro Chocolate R$ 1,20</li>
+            <li>Beijinho R$ 1,20</li>
+            <li>Ninho R$ 1,20</li>
+            <li>Bem Casado R$ 1,20</li>
+          </ul>
 
+          <h2>Doces Especiais</h2>
+          <ul class="card-values">
+            <li>Paçoca R$ 1,50</li>
+            <li>Surpresa de uva R$ 1,50</li>
+          </ul>
 
-           <div class="item" id="doces-tradicionais">
-        <img src="./assets/doce.jpg" alt="Doces Tradicionais" loading="lazy" />
-        <h2>Doces Tradicionais</h2>
-        <p class="card-subtitle">Valores a partir de:</p>
-        <ul class="card-values">
-          <li>Brigadeiro Chocolate R$ 1,20</li>
-          <li>Beijinho R$ 1,20</li>
-          <li>Ninho R$ 1,20</li>
-          <li>Bem Casado R$ 1,20</li>
-        </ul>
-
-        <h2>Doces Especiais</h2>
-        <ul class="card-values">
-          <li>Paçoca R$ 1,50</li>
-          <li>Surpresa de uva R$ 1,50</li>
-        </ul>
-
-          <p class="card-note">Pedido mínimo 25 unidades por sabor</p>
-        <a class="detalhe" href="doces.html">Mais Informações</a>
-      </div>
-
+          <p class="card-note">Pedido mínimo 25 unidades por sabor.</p>
+          <a class="detalhe" href="doces.html">Mais Informações</a>
+        </div>
       </section>
 
-      <!--Doces tradicionais-->
-
-   
       <!-- INFO -->
       <section class="info" id="add">
         <h1>Informações Adicionais</h1>
         <div class="info-cards">
-          <!-- Card 1 -->
           <div class="info-card">
             <h2>Massas Tradicionais</h2>
             <ul>
@@ -264,26 +246,16 @@
             </ul>
           </div>
 
-          <!-- Card 2: Encomendas -->
           <div class="info-card encomendas-card">
             <h2>Encomendas</h2>
             <ul>
               <li><strong>Prazo:</strong> Mínimo de 72h de antecedência.</li>
               <li><strong>Pagamento:</strong> 50% do valor total.</li>
-              <li>
-                <strong>Formas de pagamento:</strong> Transferência | Pix |
-                Cartão de crédito (com acréscimo).
-              </li>
-              <li>
-                <strong>Cancelamento:</strong> Valor inicial de 50% não será
-                devolvido.
-              </li>
-              <li>
-                <strong>Atenção:</strong> Chantininho em cores escuras podem
-                manchar e amargar.
-              </li>
+              <li><strong>Formas de pagamento:</strong> Pix, transferência ou cartão de crédito (com acréscimo).</li>
+              <li><strong>Cancelamento:</strong> O valor de 50% não é reembolsável.</li>
+              <li><strong>Atenção:</strong> Chantininho em cores escuras pode manchar e amargar.</li>
             </ul>
-            <p class="contact"><i class="fab fa-whatsapp"></i> 81-981802018</p>
+            <p class="contact"><i class="fab fa-whatsapp"></i> 81 98180-2018</p>
           </div>
         </div>
       </section>
@@ -297,6 +269,7 @@
             <a
               href="https://www.instagram.com/verdadeirocupcake/"
               target="_blank"
+              rel="noopener noreferrer"
               class="instagram-link"
             >
               <i class="fab fa-instagram"></i> @verdadeirocupcake
@@ -311,9 +284,7 @@
             ></iframe>
           </div>
         </div>
-        <p id="footer-text">
-          Desenvolvido por @anikape - <span id="current-date"></span>
-        </p>
+        <p id="footer-text">Desenvolvido por @anikape - <span id="current-date"></span></p>
       </div>
     </footer>
 
@@ -323,11 +294,7 @@
     </a>
 
     <!-- Botão WhatsApp -->
-    <a
-      href="https://wa.me/5581981802018"
-      target="_blank"
-      class="whatsapp-float"
-    >
+    <a href="https://wa.me/5581981802018" target="_blank" class="whatsapp-float">
       <i class="fab fa-whatsapp"></i>
     </a>
 
