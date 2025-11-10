@@ -1,42 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Página inicial -->
   <url>
     <loc>https://verdadeirocupcake.vercel.app/</loc>
     <lastmod>2025-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Páginas internas -->
   <url>
     <loc>https://verdadeirocupcake.vercel.app/bolospersonalizados.html</loc>
     <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://verdadeirocupcake.vercel.app/boloandar.html</loc>
     <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://verdadeirocupcake.vercel.app/vulcao.html</loc>
     <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://verdadeirocupcake.vercel.app/lembrancinhas.html</loc>
     <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://verdadeirocupcake.vercel.app/doces.html</loc>
     <lastmod>2025-11-06</lastmod>
