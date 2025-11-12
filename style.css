@@ -354,6 +354,9 @@ nav ul li a:focus {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
+.observacao{
+  color: var(--verde-destaque);
+}
 /* ===== FOOTER ===== */
 footer {
   background: var(--vermelho-escuro);
