@@ -1,0 +1,150 @@
+:root {
+    /* Suas Cores */
+    --rosa-principal: #d99197; /* Fundo Principal */
+    --verde-destaque: #e91e63; /* Destaque / Botões / Ícone */
+    --vermelho-escuro: #a64444; /* Texto / Títulos Escuros */
+    --branco-claro: #f2f2f2; /* Fundo do Container */
+    --rosa-claro: #f2bdbd; /* Fundo do Container */
+}
+
+/* Base e Layout */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Usando Rubik ou uma fallback genérica se não estiver importada no HTML */
+    font-family: 'Rubik', sans-serif, Arial, sans-serif;
+    background-color: var(--rosa-principal); /* Fundo principal */
+    color: var(--vermelho-escuro); /* Texto principal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Container Principal do Conteúdo */
+.container {
+    background-color: var(--branco-claro); /* Fundo do card */
+    padding: 40px;
+    border-radius: 14px; /* Raio de borda grande */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra mais destacada */
+    max-width: 600px;
+    width: 90%;
+    border: 3px solid var(--rosa-claro); /* Borda suave */
+}
+
+/* Ícone */
+.icon {
+    font-size: 80px;
+    margin-bottom: 10px;
+    color: var(--verde-destaque); /* Ícone no Verde Destaque */
+    animation: bounce 1s infinite alternate;
+}
+
+/* Títulos */
+h2 {
+    color: var(--vermelho-escuro); /* Título no Vermelho Escuro */
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    /* Usando Parisienne se estiver importada, senão Rubik */
+    font-family: 'Parisienne', cursive, 'Rubik', sans-serif; 
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #333; /* Cor neutra para o parágrafo */
+}
+
+/* Animação de Pulo do Ícone */
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+/* Estilo do Contador Regressivo (Countdown) */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    /* Usando Rosa Claro como fundo do bloco de tempo */
+    background-color: var(--rosa-claro); 
+    color: var(--vermelho-escuro); /* Texto do tempo no Vermelho Escuro */
+    padding: 15px 10px;
+    border-radius: 8px;
+    min-width: 75px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.time-unit span:first-child {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--verde-destaque); /* Número do tempo no Verde Destaque */
+}
+
+.time-unit span:last-child {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+/* Informações de Contato */
+.contact-info a {
+    color: var(--verde-destaque); /* Link no Verde Destaque */
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: #d81b60; /* Um tom mais escuro do Verde Destaque no hover */
+    text-decoration: underline;
+}
+
+.back-button{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--verde-destaque); /* Botão no Verde Destaque */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+/* Responsividade básica */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .countdown {
+        gap: 10px;
+    }
+    .time-unit {
+        padding: 10px 5px;
+        min-width: 60px;
+    }
+    .time-unit span:first-child {
+        font-size: 1.8em;
+    }
+    .icon {
+        font-size: 60px;
+    }
+}

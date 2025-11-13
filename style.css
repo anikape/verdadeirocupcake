@@ -29,9 +29,10 @@ body {
   min-height: 100vh;
 }
 
+/* AJUSTE AQUI: Aumentamos o padding-top para evitar sobreposição do header fixo */
 main {
   flex: 1;
-  padding-top: 80px; /* espaço para header fixo */
+  padding-top: 110px; /* Novo valor para dar espaço ao header fixo */
 }
 
 /* ===== BOTÃO VOLTAR AO TOPO ===== */
@@ -351,7 +352,7 @@ nav ul li a:focus {
   align-items: center;
   gap: 10px;
   color: var(--vermelho-escuro);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  
 }
 
 .observacao{
@@ -458,6 +459,11 @@ footer {
 
 /* ===== RESPONSIVIDADE MOBILE ===== */
 @media (max-width: 768px) {
+  /* Ajuste para o padding-top em mobile, se necessário */
+  main {
+    padding-top: 110px; /* Garante que o conteúdo comece bem abaixo do header */
+  }
+
   nav ul {
     display: none;
     flex-direction: column;
