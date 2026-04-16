@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Admin - Verdadeiro Cupcake</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fff8fb;
+      color: #222;
+    }
+
+    header {
+      background: #e91e63;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    header .acoes-topo {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn-sec {
+      background: #fff;
+      color: #e91e63;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .lista, .form-box {
+      background: white;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .lista h2, .form-box h2 {
+      margin-top: 0;
+    }
+
+    .produto-item {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .produto-item:hover,
+    .produto-item.ativo {
+      border-color: #e91e63;
+      background: #fff3f8;
+    }
+
+    .produto-item h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .produto-item p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    input, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .acoes-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn-salvar {
+      background: #2e7d32;
+      color: white;
+    }
+
+    .btn-novo {
+      background: #1565c0;
+      color: white;
+    }
+
+    .btn-excluir {
+      background: #c62828;
+      color: white;
+    }
+
+    .status {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #2e7d32;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Painel Administrativo</h1>
+    <div class="acoes-topo">
+      <button class="btn-sec" id="btnIrSite" type="button">Ver site</button>
+      <button class="btn-sec" id="btnLogout" type="button">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="lista">
+      <h2>Produtos</h2>
+      <button class="btn-novo" id="btnNovo" type="button">Novo produto</button>
+      <div id="listaProdutos" style="margin-top: 14px;"></div>
+    </section>
+
+    <section class="form-box">
+      <h2>Editar produto</h2>
+
+      <form id="produtoForm" class="grid">
+        <input type="hidden" id="docId" />
+
+        <div>
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" required />
+        </div>
+
+        <div>
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao"></textarea>
+        </div>
+
+        <div>
+          <label for="precos">Preços / Sabores</label>
+          <textarea id="precos" placeholder="Uma linha por item"></textarea>
+        </div>
+
+        <div>
+          <label for="categorias">Categorias</label>
+          <textarea id="categorias" placeholder="Use linhas em branco para separar blocos"></textarea>
+        </div>
+
+        <div>
+          <label for="imagem">Imagem (URL)</label>
+          <input type="text" id="imagem" />
+        </div>
+
+        <div>
+          <label for="link">Link do botão “Mais Informações”</label>
+          <input type="text" id="link" placeholder="ex: kits.html" />
+        </div>
+
+        <div class="acoes-form">
+          <button class="btn-salvar" type="submit">Salvar</button>
+          <button class="btn-excluir" type="button" id="btnExcluir">Excluir</button>
+        </div>
+
+        <p class="status" id="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      getDocs,
+      addDoc,
+      updateDoc,
+      deleteDoc,
+      doc,
+      getDoc
+    } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCi2vM_4utdQ0k1ZIXwi_qvbLi0Rbuf_Qs",
+      authDomain: "verdadeiro-cupcake.firebaseapp.com",
+      projectId: "verdadeiro-cupcake",
+      storageBucket: "verdadeiro-cupcake.firebasestorage.app",
+      messagingSenderId: "102388121619",
+      appId: "1:102388121619:web:522188edfc65dfd511ffe6",
+      measurementId: "G-01HDV2DESK"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    const listaProdutos = document.getElementById("listaProdutos");
+    const produtoForm = document.getElementById("produtoForm");
+    const statusEl = document.getElementById("status");
+
+    const docIdEl = document.getElementById("docId");
+    const nomeEl = document.getElementById("nome");
+    const descricaoEl = document.getElementById("descricao");
+    const precosEl = document.getElementById("precos");
+    const categoriasEl = document.getElementById("categorias");
+    const imagemEl = document.getElementById("imagem");
+    const linkEl = document.getElementById("link");
+
+    const btnNovo = document.getElementById("btnNovo");
+    const btnExcluir = document.getElementById("btnExcluir");
+    const btnLogout = document.getElementById("btnLogout");
+    const btnIrSite = document.getElementById("btnIrSite");
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      } else {
+        carregarLista();
+      }
+    });
+
+    btnIrSite.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+
+    btnLogout.addEventListener("click", async () => {
+      await signOut(auth);
+      window.location.href = "login.html";
+    });
+
+    btnNovo.addEventListener("click", () => {
+      limparFormulario();
+      statusEl.textContent = "Novo produto.";
+    });
+
+    btnExcluir.addEventListener("click", async () => {
+      const id = docIdEl.value;
+
+      if (!id) {
+        statusEl.textContent = "Selecione um produto para excluir.";
+        return;
+      }
+
+      const ok = confirm("Deseja excluir este produto?");
+      if (!ok) return;
+
+      try {
+        await deleteDoc(doc(db, "products", id));
+        limparFormulario();
+        statusEl.textContent = "Produto excluído com sucesso.";
+        await carregarLista();
+      } catch (error) {
+        console.error(error);
+        statusEl.textContent = "Erro ao excluir produto.";
+      }
+    });
+
+    produtoForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const dados = {
+        nome: nomeEl.value.trim(),
+        descricao: descricaoEl.value.trim(),
+        precos: precosEl.value.trim(),
+        categorias: categoriasEl.value.trim(),
+        imagem: imagemEl.value.trim(),
+        link: linkEl.value.trim()
+      };
+
+      try {
+        if (docIdEl.value) {
+          await updateDoc(doc(db, "products", docIdEl.value), dados);
+          statusEl.textContent = "Produto atualizado com sucesso.";
+        } else {
+          await addDoc(collection(db, "products"), dados);
+          statusEl.textContent = "Produto criado com sucesso.";
+          limparFormulario();
+        }
+
+        await carregarLista();
+      } catch (error) {
+        console.error(error);
+        statusEl.textContent = "Erro ao salvar produto.";
+      }
+    });
+
+    async function carregarLista() {
+      listaProdutos.innerHTML = "Carregando...";
+      const querySnapshot = await getDocs(collection(db, "products"));
+
+      const itens = [];
+
+      querySnapshot.forEach((item) => {
+        itens.push({ id: item.id, ...item.data() });
+      });
+
+      itens.sort((a, b) => (a.nome || "").localeCompare(b.nome || ""));
+
+      if (!itens.length) {
+        listaProdutos.innerHTML = "<p>Nenhum produto cadastrado.</p>";
+        return;
+      }
+
+      listaProdutos.innerHTML = itens.map((produto) => `
+        <div class="produto-item" data-id="${produto.id}">
+          <h3>${produto.nome || "Sem nome"}</h3>
+          <p>${produto.descricao || ""}</p>
+        </div>
+      `).join("");
+
+      document.querySelectorAll(".produto-item").forEach((el) => {
+        el.addEventListener("click", async () => {
+          document.querySelectorAll(".produto-item").forEach((x) => x.classList.remove("ativo"));
+          el.classList.add("ativo");
+          await carregarProduto(el.dataset.id);
+        });
+      });
+    }
+
+    async function carregarProduto(id) {
+      const ref = doc(db, "products", id);
+      const snap = await getDoc(ref);
+
+      if (!snap.exists()) return;
+
+      const produto = snap.data();
+
+      docIdEl.value = id;
+      nomeEl.value = produto.nome || "";
+      descricaoEl.value = produto.descricao || "";
+      precosEl.value = produto.precos || "";
+      categoriasEl.value = produto.categorias || "";
+      imagemEl.value = produto.imagem || "";
+      linkEl.value = produto.link || "";
+      statusEl.textContent = "Produto carregado.";
+    }
+
+    function limparFormulario() {
+      docIdEl.value = "";
+      nomeEl.value = "";
+      descricaoEl.value = "";
+      precosEl.value = "";
+      categoriasEl.value = "";
+      imagemEl.value = "";
+      linkEl.value = "";
+    }
+  </script>
+</body>
+</html>

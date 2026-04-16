@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Admin - Verdadeiro Cupcake</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff8fb;
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 420px;
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    .login-box h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .login-box label {
+      display: block;
+      margin: 14px 0 6px;
+      font-weight: bold;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    .login-box button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #e91e63;
+      color: #fff;
+    }
+
+    .erro {
+      color: #c62828;
+      margin-top: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h1>Área Administrativa</h1>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="seuemail@exemplo.com" />
+
+    <label for="senha">Senha</label>
+    <input type="password" id="senha" placeholder="Sua senha" />
+
+    <button id="btnLogin">Entrar</button>
+    <p id="mensagem" class="erro"></p>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCi2vM_4utdQ0k1ZIXwi_qvbLi0Rbuf_Qs",
+      authDomain: "verdadeiro-cupcake.firebaseapp.com",
+      projectId: "verdadeiro-cupcake",
+      storageBucket: "verdadeiro-cupcake.firebasestorage.app",
+      messagingSenderId: "102388121619",
+      appId: "1:102388121619:web:522188edfc65dfd511ffe6",
+      measurementId: "G-01HDV2DESK"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const btnLogin = document.getElementById("btnLogin");
+    const mensagem = document.getElementById("mensagem");
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.href = "admin.html";
+      }
+    });
+
+    btnLogin.addEventListener("click", async () => {
+      const email = document.getElementById("email").value.trim();
+      const senha = document.getElementById("senha").value;
+
+      mensagem.textContent = "";
+
+      try {
+        await signInWithEmailAndPassword(auth, email, senha);
+        window.location.href = "admin.html";
+      } catch (error) {
+        mensagem.textContent = "Email ou senha inválidos.";
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>
