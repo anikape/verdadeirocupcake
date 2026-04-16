@@ -65,6 +65,10 @@
       margin-top: 0;
     }
 
+    .subtitulo {
+      margin-top: 18px;
+    }
+
     .produto-item {
       border: 1px solid #eee;
       border-radius: 12px;
@@ -130,6 +134,7 @@
     .btn-novo {
       background: #1565c0;
       color: white;
+      margin-bottom: 10px;
     }
 
     .btn-excluir {
@@ -141,6 +146,17 @@
       margin-top: 10px;
       font-size: 0.95rem;
       color: #2e7d32;
+      white-space: pre-line;
+    }
+
+    .hint {
+      font-size: 0.84rem;
+      color: #666;
+      margin-top: -4px;
+    }
+
+    .oculto {
+      display: none;
     }
 
     @media (max-width: 900px) {
@@ -162,18 +178,23 @@
   <main class="container">
     <section class="lista">
       <h2>Produtos</h2>
-      <button class="btn-novo" id="btnNovo" type="button">Novo produto</button>
-      <div id="listaProdutos" style="margin-top: 14px;"></div>
+      <button class="btn-novo" id="btnNovoProduto" type="button">Novo produto</button>
+      <div id="listaProdutos"></div>
+
+      <h2 class="subtitulo">Páginas</h2>
+      <button class="btn-novo" id="btnNovaPagina" type="button">Nova página</button>
+      <div id="listaPaginas"></div>
     </section>
 
     <section class="form-box">
-      <h2>Editar produto</h2>
+      <h2 id="tituloFormulario">Editar item</h2>
 
-      <form id="produtoForm" class="grid">
+      <form id="itemForm" class="grid">
         <input type="hidden" id="docId" />
+        <input type="hidden" id="tipoItem" value="product" />
 
         <div>
-          <label for="nome">Nome</label>
+          <label for="nome">Nome / Título</label>
           <input type="text" id="nome" required />
         </div>
 
@@ -182,24 +203,35 @@
           <textarea id="descricao"></textarea>
         </div>
 
-        <div>
+        <div id="blocoPrecos">
           <label for="precos">Preços / Sabores</label>
           <textarea id="precos" placeholder="Uma linha por item"></textarea>
         </div>
 
-        <div>
+        <div id="blocoCategorias">
           <label for="categorias">Categorias</label>
           <textarea id="categorias" placeholder="Use linhas em branco para separar blocos"></textarea>
         </div>
 
-        <div>
+        <div id="blocoImagemProduto">
           <label for="imagem">Imagem (URL)</label>
-          <input type="text" id="imagem" />
+          <input type="text" id="imagem" placeholder="https://..." />
         </div>
 
-        <div>
+        <div id="blocoImagensPagina" class="oculto">
+          <label for="imagensPagina">Imagens da página</label>
+          <textarea id="imagensPagina" placeholder="Uma URL por linha"></textarea>
+          <p class="hint">Cole uma imagem por linha.</p>
+        </div>
+
+        <div id="blocoLinkProduto">
           <label for="link">Link do botão “Mais Informações”</label>
           <input type="text" id="link" placeholder="ex: kits.html" />
+        </div>
+
+        <div id="blocoBotaoVoltar" class="oculto">
+          <label for="botaoVoltarLink">Link do botão voltar</label>
+          <input type="text" id="botaoVoltarLink" placeholder="ex: index.html" />
         </div>
 
         <div class="acoes-form">
@@ -222,7 +254,8 @@
       updateDoc,
       deleteDoc,
       doc,
-      getDoc
+      getDoc,
+      setDoc
     } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
     import {
       getAuth,
@@ -245,18 +278,31 @@
     const auth = getAuth(app);
 
     const listaProdutos = document.getElementById("listaProdutos");
-    const produtoForm = document.getElementById("produtoForm");
+    const listaPaginas = document.getElementById("listaPaginas");
+    const itemForm = document.getElementById("itemForm");
     const statusEl = document.getElementById("status");
+    const tituloFormulario = document.getElementById("tituloFormulario");
 
     const docIdEl = document.getElementById("docId");
+    const tipoItemEl = document.getElementById("tipoItem");
     const nomeEl = document.getElementById("nome");
     const descricaoEl = document.getElementById("descricao");
     const precosEl = document.getElementById("precos");
     const categoriasEl = document.getElementById("categorias");
     const imagemEl = document.getElementById("imagem");
+    const imagensPaginaEl = document.getElementById("imagensPagina");
     const linkEl = document.getElementById("link");
+    const botaoVoltarLinkEl = document.getElementById("botaoVoltarLink");
 
-    const btnNovo = document.getElementById("btnNovo");
+    const blocoPrecos = document.getElementById("blocoPrecos");
+    const blocoCategorias = document.getElementById("blocoCategorias");
+    const blocoImagemProduto = document.getElementById("blocoImagemProduto");
+    const blocoImagensPagina = document.getElementById("blocoImagensPagina");
+    const blocoLinkProduto = document.getElementById("blocoLinkProduto");
+    const blocoBotaoVoltar = document.getElementById("blocoBotaoVoltar");
+
+    const btnNovoProduto = document.getElementById("btnNovoProduto");
+    const btnNovaPagina = document.getElementById("btnNovaPagina");
     const btnExcluir = document.getElementById("btnExcluir");
     const btnLogout = document.getElementById("btnLogout");
     const btnIrSite = document.getElementById("btnIrSite");
@@ -265,9 +311,15 @@
       if (!user) {
         window.location.href = "login.html";
       } else {
-        carregarLista();
+        inicializarPainel();
       }
     });
+
+    async function inicializarPainel() {
+      await carregarProdutos();
+      await carregarPaginas();
+      prepararFormularioProduto();
+    }
 
     btnIrSite.addEventListener("click", () => {
       window.location.href = "index.html";
@@ -278,68 +330,104 @@
       window.location.href = "login.html";
     });
 
-    btnNovo.addEventListener("click", () => {
+    btnNovoProduto.addEventListener("click", () => {
+      prepararFormularioProduto();
       limparFormulario();
       statusEl.textContent = "Novo produto.";
     });
 
+    btnNovaPagina.addEventListener("click", () => {
+      prepararFormularioPagina();
+      limparFormulario();
+      statusEl.textContent = "Nova página. Use no campo Nome / Título algo como: acetato, kits, lembrancinhas.";
+    });
+
     btnExcluir.addEventListener("click", async () => {
       const id = docIdEl.value;
+      const tipo = tipoItemEl.value;
 
       if (!id) {
-        statusEl.textContent = "Selecione um produto para excluir.";
+        statusEl.textContent = "Selecione um item para excluir.";
         return;
       }
 
-      const ok = confirm("Deseja excluir este produto?");
+      const ok = confirm("Deseja excluir este item?");
       if (!ok) return;
 
       try {
-        await deleteDoc(doc(db, "products", id));
-        limparFormulario();
-        statusEl.textContent = "Produto excluído com sucesso.";
-        await carregarLista();
-      } catch (error) {
-        console.error(error);
-        statusEl.textContent = "Erro ao excluir produto.";
-      }
-    });
-
-    produtoForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const dados = {
-        nome: nomeEl.value.trim(),
-        descricao: descricaoEl.value.trim(),
-        precos: precosEl.value.trim(),
-        categorias: categoriasEl.value.trim(),
-        imagem: imagemEl.value.trim(),
-        link: linkEl.value.trim()
-      };
-
-      try {
-        if (docIdEl.value) {
-          await updateDoc(doc(db, "products", docIdEl.value), dados);
-          statusEl.textContent = "Produto atualizado com sucesso.";
+        if (tipo === "product") {
+          await deleteDoc(doc(db, "products", id));
+          await carregarProdutos();
         } else {
-          await addDoc(collection(db, "products"), dados);
-          statusEl.textContent = "Produto criado com sucesso.";
-          limparFormulario();
+          await deleteDoc(doc(db, "pages", id));
+          await carregarPaginas();
         }
 
-        await carregarLista();
+        limparFormulario();
+        statusEl.textContent = "Item excluído com sucesso.";
       } catch (error) {
         console.error(error);
-        statusEl.textContent = "Erro ao salvar produto.";
+        statusEl.textContent = "Erro ao excluir item.";
       }
     });
 
-    async function carregarLista() {
+    itemForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const tipo = tipoItemEl.value;
+      const id = docIdEl.value.trim();
+
+      try {
+        if (tipo === "product") {
+          const dadosProduto = {
+            nome: nomeEl.value.trim(),
+            descricao: descricaoEl.value.trim(),
+            precos: precosEl.value.trim(),
+            categorias: categoriasEl.value.trim(),
+            imagem: imagemEl.value.trim(),
+            link: linkEl.value.trim()
+          };
+
+          if (id) {
+            await updateDoc(doc(db, "products", id), dadosProduto);
+            statusEl.textContent = "Produto atualizado com sucesso.";
+          } else {
+            await addDoc(collection(db, "products"), dadosProduto);
+            statusEl.textContent = "Produto criado com sucesso.";
+            limparFormulario();
+          }
+
+          await carregarProdutos();
+        } else {
+          const idPagina = id || nomeEl.value.trim().toLowerCase().replace(/\s+/g, "-");
+          const imagensArray = imagensPaginaEl.value
+            .split("\n")
+            .map((linha) => linha.trim())
+            .filter(Boolean);
+
+          const dadosPagina = {
+            titulo: nomeEl.value.trim(),
+            descricao: descricaoEl.value.trim(),
+            imagens: imagensArray,
+            botaoVoltarLink: botaoVoltarLinkEl.value.trim() || "index.html"
+          };
+
+          await setDoc(doc(db, "pages", idPagina), dadosPagina);
+          docIdEl.value = idPagina;
+          statusEl.textContent = "Página salva com sucesso.";
+          await carregarPaginas();
+        }
+      } catch (error) {
+        console.error(error);
+        statusEl.textContent = "Erro ao salvar item.";
+      }
+    });
+
+    async function carregarProdutos() {
       listaProdutos.innerHTML = "Carregando...";
       const querySnapshot = await getDocs(collection(db, "products"));
 
       const itens = [];
-
       querySnapshot.forEach((item) => {
         itens.push({ id: item.id, ...item.data() });
       });
@@ -358,24 +446,57 @@
         </div>
       `).join("");
 
-      document.querySelectorAll(".produto-item").forEach((el) => {
+      document.querySelectorAll("#listaProdutos .produto-item").forEach((el) => {
         el.addEventListener("click", async () => {
-          document.querySelectorAll(".produto-item").forEach((x) => x.classList.remove("ativo"));
-          el.classList.add("ativo");
+          marcarAtivo(el);
           await carregarProduto(el.dataset.id);
         });
       });
     }
 
+    async function carregarPaginas() {
+      listaPaginas.innerHTML = "Carregando...";
+      const querySnapshot = await getDocs(collection(db, "pages"));
+
+      const itens = [];
+      querySnapshot.forEach((item) => {
+        itens.push({ id: item.id, ...item.data() });
+      });
+
+      itens.sort((a, b) => (a.titulo || a.id || "").localeCompare(b.titulo || b.id || ""));
+
+      if (!itens.length) {
+        listaPaginas.innerHTML = "<p>Nenhuma página cadastrada.</p>";
+        return;
+      }
+
+      listaPaginas.innerHTML = itens.map((pagina) => `
+        <div class="produto-item" data-id="${pagina.id}">
+          <h3>${pagina.titulo || pagina.id}</h3>
+          <p>ID: ${pagina.id}</p>
+        </div>
+      `).join("");
+
+      document.querySelectorAll("#listaPaginas .produto-item").forEach((el) => {
+        el.addEventListener("click", async () => {
+          marcarAtivo(el);
+          await carregarPagina(el.dataset.id);
+        });
+      });
+    }
+
     async function carregarProduto(id) {
-      const ref = doc(db, "products", id);
-      const snap = await getDoc(ref);
+      prepararFormularioProduto();
+
+      const refDoc = doc(db, "products", id);
+      const snap = await getDoc(refDoc);
 
       if (!snap.exists()) return;
 
       const produto = snap.data();
 
       docIdEl.value = id;
+      tipoItemEl.value = "product";
       nomeEl.value = produto.nome || "";
       descricaoEl.value = produto.descricao || "";
       precosEl.value = produto.precos || "";
@@ -385,6 +506,51 @@
       statusEl.textContent = "Produto carregado.";
     }
 
+    async function carregarPagina(id) {
+      prepararFormularioPagina();
+
+      const refDoc = doc(db, "pages", id);
+      const snap = await getDoc(refDoc);
+
+      if (!snap.exists()) return;
+
+      const data = snap.data();
+
+      docIdEl.value = id;
+      tipoItemEl.value = "page";
+      nomeEl.value = data.titulo || "";
+      descricaoEl.value = data.descricao || "";
+      imagensPaginaEl.value = (data.imagens || []).join("\n");
+      botaoVoltarLinkEl.value = data.botaoVoltarLink || "index.html";
+      statusEl.textContent = "Página carregada.";
+    }
+
+    function prepararFormularioProduto() {
+      tipoItemEl.value = "product";
+      tituloFormulario.textContent = "Editar produto";
+
+      blocoPrecos.classList.remove("oculto");
+      blocoCategorias.classList.remove("oculto");
+      blocoImagemProduto.classList.remove("oculto");
+      blocoLinkProduto.classList.remove("oculto");
+
+      blocoImagensPagina.classList.add("oculto");
+      blocoBotaoVoltar.classList.add("oculto");
+    }
+
+    function prepararFormularioPagina() {
+      tipoItemEl.value = "page";
+      tituloFormulario.textContent = "Editar página";
+
+      blocoPrecos.classList.add("oculto");
+      blocoCategorias.classList.add("oculto");
+      blocoImagemProduto.classList.add("oculto");
+      blocoLinkProduto.classList.add("oculto");
+
+      blocoImagensPagina.classList.remove("oculto");
+      blocoBotaoVoltar.classList.remove("oculto");
+    }
+
     function limparFormulario() {
       docIdEl.value = "";
       nomeEl.value = "";
@@ -392,7 +558,15 @@
       precosEl.value = "";
       categoriasEl.value = "";
       imagemEl.value = "";
+      imagensPaginaEl.value = "";
       linkEl.value = "";
+      botaoVoltarLinkEl.value = "";
+      document.querySelectorAll(".produto-item").forEach((x) => x.classList.remove("ativo"));
+    }
+
+    function marcarAtivo(elemento) {
+      document.querySelectorAll(".produto-item").forEach((x) => x.classList.remove("ativo"));
+      elemento.classList.add("ativo");
     }
   </script>
 </body>
